@@ -1,10 +1,13 @@
 import * as ex from "excalibur";
 
 const Images = {
-  heroSheetImage: new ex.ImageSource("/sprites/mm-48-drew-blue-sheet.png"),
-  heroBulletImage: new ex.ImageSource("/sprites/mm-lemon.png"),
+  // heroSheetImage: new ex.ImageSource("/sprites/mm-48-drew-blue-sheet.png"),
+  heroSheetImage: new ex.ImageSource("/sprites/mm-48-marka.png"),
+  heroBulletImage: new ex.ImageSource("/sprites/mm-lemon-marka.png"),
+  // heroBulletImage: new ex.ImageSource("/sprites/mm-lemon.png"),
 
-  map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1.png"),
+  map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1-marka-full.png"),
+  // map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1.png"),
   map2Image: new ex.ImageSource("/maps/DrewMan_stage/map2.png"),
   map3Image: new ex.ImageSource("/maps/DrewMan_stage/map3.png"),
 
