@@ -19,20 +19,21 @@ const idleShoot = ex.Animation.fromSpriteSheet(heroSpriteSheet, [10], 200);
 const idleShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [10], 200);
 idleShootRight.flipHorizontal = true;
 
-const preStep = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
-const preStepRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
+// const preStep = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
+const preStep = ex.Animation.fromSpriteSheet(heroSpriteSheet, [1], 200);
+const preStepRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [1], 200);
 preStepRight.flipHorizontal = true;
 
 /* Individual runs here */
-const run1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [3], 200);
-const run2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [4], 200);
-const run3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [5], 200);
+const run1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
+const run2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [3], 200);
+const run3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [4], 200);
 
-const runR1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [3], 200);
+const runR1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
 runR1.flipHorizontal = true;
-const runR2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [4], 200);
+const runR2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [3], 200);
 runR2.flipHorizontal = true;
-const runR3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [5], 200);
+const runR3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [4], 200);
 runR3.flipHorizontal = true;
 
 const runS1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [13], 200);

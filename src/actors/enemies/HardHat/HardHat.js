@@ -3,19 +3,30 @@ import { Images } from "../../../resources.js";
 import { ANCHOR_CENTER, TAG_HERO_BULLET } from "../../../constants.js";
 import { DrawShapeHelper } from "../../../classes/DrawShapeHelper.js";
 
+// const spriteSheet = ex.SpriteSheet.fromImageSource({
+//   image: Images.hardHatSheetImage,
+//   grid: {
+//     columns: 5,
+//     rows: 3,
+//     spriteWidth: 32,
+//     spriteHeight: 32,
+//   },
+// });
+
 const spriteSheet = ex.SpriteSheet.fromImageSource({
   image: Images.hardHatSheetImage,
   grid: {
-    columns: 5,
-    rows: 3,
-    spriteWidth: 32,
-    spriteHeight: 32,
+    columns: 3,
+    rows: 1,
+    spriteWidth: 24,
+    spriteHeight: 24,
   },
 });
 
 const enterHidingAnim = ex.Animation.fromSpriteSheet(
   spriteSheet,
-  [5, 6, 7],
+  // [5, 6, 7],
+  [0],
   200
 );
 enterHidingAnim.strategy = ex.AnimationStrategy.Freeze;
@@ -23,7 +34,8 @@ enterHidingAnim.strategy = ex.AnimationStrategy.Freeze;
 const idleHidingAnim = ex.Animation.fromSpriteSheet(spriteSheet, [0], 200);
 const exitHidingAnim = ex.Animation.fromSpriteSheet(
   spriteSheet,
-  [0, 1, 2],
+  // [0, 1, 2],
+  [0],
   200
 );
 exitHidingAnim.strategy = ex.AnimationStrategy.Freeze;
@@ -45,8 +57,8 @@ export class HardHat extends ex.Actor {
     super({
       x: x,
       y: y,
-      width: 32,
-      height: 32,
+      width: 24,
+      height: 24,
       collider: collisionBox,
       scale: new ex.Vector(2, 2),
       color: ex.Color.Green,
@@ -74,7 +86,7 @@ export class HardHat extends ex.Actor {
   }
 
   onInitialize(_engine) {
-    new DrawShapeHelper(this);
+    // new DrawShapeHelper(this); // this shows shape
   }
 
   async behavior() {

@@ -16,6 +16,7 @@ async function main() {
   const game = new ex.Engine({
     width: 256 * SCALE,
     height: 240 * SCALE,
+    displayMode: ex.DisplayMode.FitScreenAndFill,
     fixedUpdateFps: 60,
     antialiasing: false, // Pixel art graphics
   });
