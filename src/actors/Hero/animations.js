@@ -11,6 +11,16 @@ const heroSpriteSheet = ex.SpriteSheet.fromImageSource({
   },
 });
 
+const heroJumpSpriteSheet = ex.SpriteSheet.fromImageSource({
+  image: Images.heroJumpSheetImage,
+  grid: {
+    columns: 10,
+    rows: 1,
+    spriteWidth: 48,
+    spriteHeight: 48,
+  },
+});
+
 const idle = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
 const idleRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
 idleRight.flipHorizontal = true;
@@ -51,13 +61,22 @@ const pain = ex.Animation.fromSpriteSheet(heroSpriteSheet, [23], 200);
 const painRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [23], 200);
 painRight.flipHorizontal = true;
 
-const jump = ex.Animation.fromSpriteSheet(heroSpriteSheet, [6], 200);
-const jumpRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [6], 200);
+// const jump = ex.Animation.fromSpriteSheet(heroSpriteSheet, [6], 200);
+// const jumpRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [6], 200);
+// jumpRight.flipHorizontal = true;
+
+// const jumpShoot = ex.Animation.fromSpriteSheet(heroSpriteSheet, [16], 200);
+// const jumpShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [16], 200);
+// jumpShootRight.flipHorizontal = true;
+
+const jump = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
+const jumpRight = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
 jumpRight.flipHorizontal = true;
 
-const jumpShoot = ex.Animation.fromSpriteSheet(heroSpriteSheet, [16], 200);
-const jumpShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [16], 200);
+const jumpShoot = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
+const jumpShootRight = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
 jumpShootRight.flipHorizontal = true;
+
 
 const ladder = ex.Animation.fromSpriteSheet(heroSpriteSheet, [20], 200);
 const ladderR = ex.Animation.fromSpriteSheet(heroSpriteSheet, [21], 200);
