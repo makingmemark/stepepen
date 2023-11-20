@@ -16,7 +16,7 @@ import { DrawShapeHelper } from "../../../classes/DrawShapeHelper.js";
 const spriteSheet = ex.SpriteSheet.fromImageSource({
   image: Images.hardHatSheetImage,
   grid: {
-    columns: 3,
+    columns: 4,
     rows: 1,
     spriteWidth: 24,
     spriteHeight: 24,
@@ -40,16 +40,23 @@ const exitHidingAnim = ex.Animation.fromSpriteSheet(
 );
 exitHidingAnim.strategy = ex.AnimationStrategy.Freeze;
 
-const standingAnim = ex.Animation.fromSpriteSheet(spriteSheet, [2], 200);
+const standingAnim = ex.Animation.fromSpriteSheet(spriteSheet, [3], 200);
 // const standingAnimPain = ex.Animation.fromSpriteSheet(spriteSheet, [7], 200);
 // const walkingAnim = ex.Animation.fromSpriteSheet(spriteSheet, [3, 4], 200);
 // const walkingAnimPain = ex.Animation.fromSpriteSheet(spriteSheet, [8, 9], 200);
 
+// const collisionBox = ex.Shape.Box(
+//   14,
+//   14,
+//   ANCHOR_CENTER,
+//   new ex.Vector(0, 8) //pixels
+// );
+
 const collisionBox = ex.Shape.Box(
-  14,
-  14,
+  24,
+  24,
   ANCHOR_CENTER,
-  new ex.Vector(0, 8) //pixels
+  new ex.Vector(0, 0) //pixels
 );
 
 export class HardHat extends ex.Actor {

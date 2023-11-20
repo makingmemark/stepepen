@@ -14,7 +14,7 @@ const Images = {
 
   shotmanSheetImage: new ex.ImageSource("/sprites/new-shotman-sheet.png"),
   // hardHatSheetImage: new ex.ImageSource("/sprites/hardhat-sheet.png"),
-  hardHatSheetImage: new ex.ImageSource("/sprites/1327/punk9007-gray.png"),
+  hardHatSheetImage: new ex.ImageSource("/sprites/1327/punk9007-a.png"),
   pipiSheetImage: new ex.ImageSource("/sprites/pipi-sheet.png"),
   explosionSpriteSheet: new ex.ImageSource("/sprites/explosion-sheet.png"),
 
