@@ -4,18 +4,8 @@ import { Images } from "../../resources.js";
 const heroSpriteSheet = ex.SpriteSheet.fromImageSource({
   image: Images.heroSheetImage,
   grid: {
-    columns: 10,
-    rows: 10,
-    spriteWidth: 48,
-    spriteHeight: 48,
-  },
-});
-
-const heroJumpSpriteSheet = ex.SpriteSheet.fromImageSource({
-  image: Images.heroJumpSheetImage,
-  grid: {
-    columns: 10,
-    rows: 1,
+    columns: 5,
+    rows: 5,
     spriteWidth: 48,
     spriteHeight: 48,
   },
@@ -25,36 +15,36 @@ const idle = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
 const idleRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
 idleRight.flipHorizontal = true;
 
-const idleShoot = ex.Animation.fromSpriteSheet(heroSpriteSheet, [10], 200);
-const idleShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [10], 200);
+const idleShoot = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
+const idleShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
 idleShootRight.flipHorizontal = true;
 
 // const preStep = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
-const preStep = ex.Animation.fromSpriteSheet(heroSpriteSheet, [1], 200);
-const preStepRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [1], 200);
+const preStep = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
+const preStepRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [0], 200);
 preStepRight.flipHorizontal = true;
 
 /* Individual runs here */
-const run1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
-const run2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [3], 200);
-const run3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [4], 200);
+const run1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [15], 200);
+const run2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [17], 200);
+const run3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [19], 200);
 
-const runR1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [2], 200);
+const runR1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [15], 200);
 runR1.flipHorizontal = true;
-const runR2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [3], 200);
+const runR2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [17], 200);
 runR2.flipHorizontal = true;
-const runR3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [4], 200);
+const runR3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [19], 200);
 runR3.flipHorizontal = true;
 
-const runS1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [13], 200);
-const runS2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [14], 200);
-const runS3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [15], 200);
+const runS1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [15], 200);
+const runS2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [17], 200);
+const runS3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [19], 200);
 
-const runRS1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [13], 200);
+const runRS1 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [15], 200);
 runRS1.flipHorizontal = true;
-const runRS2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [14], 200);
+const runRS2 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [17], 200);
 runRS2.flipHorizontal = true;
-const runRS3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [15], 200);
+const runRS3 = ex.Animation.fromSpriteSheet(heroSpriteSheet, [19], 200);
 runRS3.flipHorizontal = true;
 
 const pain = ex.Animation.fromSpriteSheet(heroSpriteSheet, [23], 200);
@@ -69,12 +59,12 @@ painRight.flipHorizontal = true;
 // const jumpShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [16], 200);
 // jumpShootRight.flipHorizontal = true;
 
-const jump = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
-const jumpRight = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
+const jump = ex.Animation.fromSpriteSheet(heroSpriteSheet, [5], 200);
+const jumpRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [5], 200);
 jumpRight.flipHorizontal = true;
 
-const jumpShoot = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
-const jumpShootRight = ex.Animation.fromSpriteSheet(heroJumpSpriteSheet, [3], 200);
+const jumpShoot = ex.Animation.fromSpriteSheet(heroSpriteSheet, [5], 200);
+const jumpShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [5], 200);
 jumpShootRight.flipHorizontal = true;
 
 
