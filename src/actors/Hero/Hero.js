@@ -19,7 +19,9 @@ import { Sounds } from "../../resources.js";
 import anims, { animationMap } from "./animations.js";
 
 //MOVING SPEEDS
-const WALKING_VELOCITY = 180;
+const WALKING_VELOCITY = 150; // was 180
+const RUNNING_VELOCITY = 240; // was 180
+
 const JUMP_VELOCITY = -600;
 const LADDER_JUMP_VELOCITY = -200;
 const LADDER_CLIMB_VELOCITY = 100;
@@ -30,6 +32,9 @@ const MAX_FALLING_VELOCITY = 400;
 // TIMING constants
 const DURATION_CLIMB_TOP_TOTAL_MS = 140;
 const DURATION_PRE_STEP = 80;
+
+const WALK_ANIM_SPEED = 140;
+const WALK_TOTAL_MS = WALK_ANIM_SPEED * 4;
 
 const RUN_ANIM_SPEED = 140;
 const RUN_TOTAL_MS = RUN_ANIM_SPEED * 4;
@@ -70,6 +75,7 @@ export class Hero extends ex.Actor {
     this.shootingMsLeft = 0;
     this.preStepMsLeft = 0;
 
+    this.walkingAnimationFramesMs = WALK_TOTAL_MS;
     this.runningAnimationFramesMs = RUN_TOTAL_MS;
     this.ladderAnimationFramesMs = LADDER_TOTAL_MS;
 
@@ -284,23 +290,39 @@ export class Hero extends ex.Actor {
       // Do what the current arrow says
       if (this.directionQueue.direction) {
         const dir = this.directionQueue.direction;
+
+        if (keyboard.isHeld(keys.X)) {
+          console.log('X held')
+        }
         if (this.onGround) {
           if (this.preStepMsLeft > 0) {
             this.preStepMsLeft -= delta;
           } else {
-            this.vel.x = dir === LEFT ? -WALKING_VELOCITY : WALKING_VELOCITY;
+            if (keyboard.isHeld(keys.X)) {
+              this.vel.x = dir === LEFT ? -RUNNING_VELOCITY : RUNNING_VELOCITY;
+            } else {
+              this.vel.x = dir === LEFT ? -WALKING_VELOCITY : WALKING_VELOCITY;
+            } 
           }
         } else {
           // IN AIR
-          this.vel.x = dir === LEFT ? -WALKING_VELOCITY : WALKING_VELOCITY;
+          if (keyboard.isHeld(keys.X)) {
+            this.vel.x = dir === LEFT ? -RUNNING_VELOCITY : RUNNING_VELOCITY;
+          } else {
+            this.vel.x = dir === LEFT ? -WALKING_VELOCITY : WALKING_VELOCITY;
+          } 
         }
       }
 
       // Work on running frames
       if (this.vel.x !== 0) {
         this.runningAnimationFramesMs -= delta;
+        this.walkingAnimationFramesMs -= delta;
         if (this.runningAnimationFramesMs <= 0) {
           this.runningAnimationFramesMs = RUN_TOTAL_MS;
+        }
+        if (this.walkingAnimationFramesMs <= 0) {
+          this.walkingAnimationFramesMs = WALK_TOTAL_MS;
         }
       }
 
@@ -435,7 +457,14 @@ export class Hero extends ex.Actor {
       return;
     }
     if (this.vel.x !== 0) {
-      this.graphics.use(this.getRunningAnim(index));
+      console.log(index, this.vel.x)
+      //check if run button if pressed if so: 
+      
+      if (this.vel.x >= RUNNING_VELOCITY || this.vel.x <= -RUNNING_VELOCITY ) {
+        this.graphics.use(this.getRunningAnim(index)); // Use running animation
+      } else {
+        this.graphics.use(this.getWalkingAnim(index)); // Use walking animation
+      }
       return;
     }
     if (this.preStepMsLeft > 0) {
@@ -445,7 +474,22 @@ export class Hero extends ex.Actor {
     this.graphics.use(animationMap["IDLE"][index]);
   }
 
+  getWalkingAnim(index) {
+    if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.25) {
+      return animationMap["WALK1"][index];
+    }
+    if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.5) {
+      return animationMap["WALK2"][index];
+    }
+    if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.75) {
+      return animationMap["WALK3"][index];
+    }
+    return animationMap["WALK2"][index];
+  }
+
   getRunningAnim(index) {
+    // looks like different running animations based on speeds
+
     if (this.runningAnimationFramesMs < RUN_TOTAL_MS * 0.25) {
       return animationMap["RUN1"][index];
     }
