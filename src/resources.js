@@ -2,7 +2,8 @@ import * as ex from "excalibur";
 
 const Images = {
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-drew-blue-sheet.png"),
-  heroSheetImage: new ex.ImageSource("/sprites/mm-48-marka.png"),
+  // heroSheetImage: new ex.ImageSource("/sprites/mm-48-marka.png"),
+  heroSheetImage: new ex.ImageSource("/sprites/bunya/walking.png"),
   heroBulletImage: new ex.ImageSource("/sprites/mm-lemon-marka.png"),
   // heroBulletImage: new ex.ImageSource("/sprites/mm-lemon.png"),
 
