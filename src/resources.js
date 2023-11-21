@@ -10,7 +10,7 @@ const Images = {
 
   map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1-marka-full-c.png"),
   // map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1.png"),
-  map2Image: new ex.ImageSource("/maps/DrewMan_stage/map2.png"),
+  map2Image: new ex.ImageSource("/maps/DrewMan_stage/map2-full-c.png"), 
   map3Image: new ex.ImageSource("/maps/DrewMan_stage/map3.png"),
 
   shotmanSheetImage: new ex.ImageSource("/sprites/new-shotman-sheet.png"),
