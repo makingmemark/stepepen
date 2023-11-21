@@ -145,7 +145,17 @@ const room1 = new Room({
     },
     {
       type: Objs.HARD_HAT,
-      x: 53,
+      x:55, // was 53
+      y: 7.25,
+    },
+    {
+      type: Objs.NEW_SHOTMAN,
+      x:63, // was 53
+      y: 4,
+    },
+    {
+      type: Objs.PIPI,
+      x:53, // was 53
       y: 4,
     },
   ],

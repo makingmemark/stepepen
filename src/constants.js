@@ -27,6 +27,7 @@ export const MAX_HP = 28;
 
 export const TAG_HERO = "TAG_HERO";
 export const TAG_HERO_BULLET = "TAG_HERO_BULLET";
+export const TAG_HADHAT_BULLET = "TAG_HADHAT_BULLET";
 export const TAG_LADDER = "TAG_LADDER";
 export const TAG_LADDER_DETECT_TOP = "TAG_LADDER_DETECT_TOP";
 
