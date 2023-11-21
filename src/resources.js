@@ -3,7 +3,7 @@ import * as ex from "excalibur";
 const Images = {
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-drew-blue-sheet.png"),
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-marka.png"),
-  heroSheetImage: new ex.ImageSource("/sprites/bunya/stepepen.png"),
+  heroSheetImage: new ex.ImageSource("/sprites/bunya/stepepen-outline.png"),
   // heroJumpSheetImage: new ex.ImageSource("/sprites/bunya/jumping.png"),
   // heroBulletImage: new ex.ImageSource("/sprites/mm-lemon.png"),
   heroBulletImage: new ex.ImageSource("/sprites/mm-paint-bullets.png"),
