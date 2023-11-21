@@ -87,7 +87,7 @@ export class Hero extends ex.Actor {
 
   onInitialize(_engine) {
     this.addTag(TAG_HERO);
-    new DrawShapeHelper(this); // this shows shape
+    // new DrawShapeHelper(this); // this shows shape
   }
 
   onCollisionStart(evt) {

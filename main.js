@@ -19,7 +19,7 @@ async function main() {
     displayMode: ex.DisplayMode.FitScreenAndFill,
     fixedUpdateFps: 60,
     antialiasing: false, // Pixel art graphics,
-    backgroundColor: ex.Color.fromHex('#ffffff')
+    backgroundColor: ex.Color.fromHex('#000000')
   });
 
   // Set global gravity

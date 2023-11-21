@@ -93,7 +93,7 @@ export class HardHat extends ex.Actor {
   }
 
   onInitialize(_engine) {
-    new DrawShapeHelper(this); // this shows shape
+    // new DrawShapeHelper(this); // this shows shape
   }
 
   async behavior() {
