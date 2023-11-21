@@ -5,6 +5,7 @@ import {
   TAG_LADDER_DETECT_TOP,
 } from "../constants.js";
 import { Floor } from "./Floor.js";
+import { DrawShapeHelper } from "../classes/DrawShapeHelper.js";
 
 class LadderDetectTop extends ex.Actor {
   constructor(x, y) {
@@ -47,6 +48,7 @@ export class Ladder extends ex.Actor {
   }
 
   onInitialize(engine) {
+    // new DrawShapeHelper(this);
     const topDetect = new LadderDetectTop(this.pos.x, this.pos.y - 16);
     engine.add(topDetect);
 

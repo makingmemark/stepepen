@@ -11,8 +11,8 @@ import { pipiSpriteSheet } from "./sprites.js";
 
 const flyingAnim = ex.Animation.fromSpriteSheet(
   pipiSpriteSheet,
-  [0, 1, 2],
-  200
+  [0, 1, 2,3,4,5],
+  400
 );
 
 export class Pipi extends ex.Actor {
@@ -42,7 +42,7 @@ export class Pipi extends ex.Actor {
   }
 
   onInitialize(engine) {
-    new DrawShapeHelper(this);
+    // new DrawShapeHelper(this);
     const egg = new PipiEgg(this);
     this.egg = egg;
     engine.add(egg);

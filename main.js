@@ -35,8 +35,8 @@ async function main() {
     game.add(room);
   });
 
-  const hero = new Hero(45 * SCALED_CELL, 2 * SCALED_CELL);
-  // const hero = new Hero(15 * SCALED_CELL, 2 * SCALED_CELL);
+  // const hero = new Hero(45 * SCALED_CELL, 2 * SCALED_CELL);
+  const hero = new Hero(15 * SCALED_CELL, 2 * SCALED_CELL);
   game.add(hero);
   const cameraStrategy = new MM_CameraStrategy(hero);
   cameraStrategy.setRoomLimits(stage.firstMap.limits);

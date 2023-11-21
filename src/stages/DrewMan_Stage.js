@@ -26,18 +26,18 @@ const room1 = new Room({
     },
 
     //First hump
-    {
-      x: 20,
-      y: 11,
-      widthCells: 5,
-      heightCells: 1,
-    },
-    {
-      x: 21,
-      y: 10,
-      widthCells: 3,
-      heightCells: 1,
-    },
+    // {
+    //   x: 20,
+    //   y: 11,
+    //   widthCells: 5,
+    //   heightCells: 1,
+    // },
+    // {
+    //   x: 21,
+    //   y: 10,
+    //   widthCells: 3,
+    //   heightCells: 1,
+    // },
 
     //Second hump
     {
@@ -97,37 +97,42 @@ const room1 = new Room({
       heightCells: 1,
     },
 
-    //Lower ceiling
+    //Lower ceiling/ room ground
     {
       x: 70,
       y: 6,
-      widthCells: 11,
+      widthCells: 10, //was 11
       heightCells: 4,
     },
+    //room side wall
     {
       x: 68,
       y: 1,
       widthCells: 2,
       heightCells: 7,
     },
+    // small first wall portion
     {
       x: 67,
       y: 4,
       widthCells: 1,
       heightCells: 2,
     },
+    // top roof first portion
     {
       x: 70,
       y: 0,
       widthCells: 7,
       heightCells: 2,
     },
+    // top roof 2nd portion
     {
       x: 78,
       y: 0,
       widthCells: 7,
       heightCells: 2,
     },
+    // far right wall
     {
       x: 82,
       y: 2,
@@ -139,9 +144,10 @@ const room1 = new Room({
     // By the rules, this should come in from the OTHER room
     {
       type: Objs.LADDER,
-      x: 81,
+      x: 80.5, //81 
       y: 6,
-      heightCells: 4,
+      // widthCells: 2,
+      heightCells: 4
     },
     {
       type: Objs.HARD_HAT,

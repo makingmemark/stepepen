@@ -1,5 +1,6 @@
 import * as ex from "excalibur";
 import { SCALE_2x } from "../constants.js";
+import { DrawShapeHelper } from "../classes/DrawShapeHelper.js";
 
 export class Floor extends ex.Actor {
   constructor(x, y, cols, rows) {
@@ -20,5 +21,8 @@ export class Floor extends ex.Actor {
     this.graphics.opacity = 0.0;
 
     this.isFloor = true;
+  }
+  onInitialize(engine) {
+    // new DrawShapeHelper(this);
   }
 }

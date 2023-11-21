@@ -6,6 +6,7 @@ import { HardHat } from "./enemies/HardHat/HardHat.js";
 import { Pipi } from "./enemies/Pipi/Pipi.js";
 import { NewShotman } from "./enemies/NewShotman/NewShotman.js";
 import { RoomChange } from "./RoomChange.js";
+import { DrawShapeHelper } from "../classes/DrawShapeHelper.js";
 
 export class Room extends ex.Actor {
   constructor({ x, y, image, floors, objects, limits }) {
@@ -24,6 +25,8 @@ export class Room extends ex.Actor {
   }
 
   onInitialize(engine) {
+
+    // new DrawShapeHelper(this);
 
     this.floors.forEach((f) => {
       const x = this.pos.x + f.x * SCALED_CELL;

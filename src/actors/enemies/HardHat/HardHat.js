@@ -197,17 +197,18 @@ export class HardHat extends ex.Actor {
     console.log('collision with megaman bullet, play color animation!')
 
     this.hitWithPaint = true
-
+    this.body.collisionType = ex.CollisionType.PreventCollision;
     await this.actions.delay(100).toPromise(); // wait one second so bullet gets to  him
     this.graphics.use(paintAnim); //  show anim
     other.kill();
 
     await this.actions.delay(1000).toPromise();
-    // this.graphics.opacity = 0.5;
+    this.graphics.opacity = 0.5;
+    this.z = 0;
 
     
 
-    this.kill();
+    // this.kill();
     // other.deflect(); // if we want to deflect
     
 

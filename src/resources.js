@@ -8,7 +8,7 @@ const Images = {
   // heroBulletImage: new ex.ImageSource("/sprites/mm-lemon.png"),
   heroBulletImage: new ex.ImageSource("/sprites/mm-paint-bullets.png"),
 
-  map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1-marka-full.png"),
+  map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1-marka-full-c.png"),
   // map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1.png"),
   map2Image: new ex.ImageSource("/maps/DrewMan_stage/map2.png"),
   map3Image: new ex.ImageSource("/maps/DrewMan_stage/map3.png"),
@@ -17,6 +17,7 @@ const Images = {
   // hardHatSheetImage: new ex.ImageSource("/sprites/hardhat-sheet.png"),
   hardHatSheetImage: new ex.ImageSource("/sprites/1327/punk9007-all.png"),
   pipiSheetImage: new ex.ImageSource("/sprites/pipi-sheet.png"),
+  pipiSheetImageNew: new ex.ImageSource("/sprites/bunya/enemies.png"),
   explosionSpriteSheet: new ex.ImageSource("/sprites/explosion-sheet.png"),
 
   sweatSpriteSheetImage: new ex.ImageSource("/sprites/mm-pain-sweat-sheet.png"),

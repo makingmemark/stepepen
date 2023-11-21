@@ -5,7 +5,7 @@ const heroSpriteSheet = ex.SpriteSheet.fromImageSource({
   image: Images.heroSheetImage,
   grid: {
     columns: 5,
-    rows: 5,
+    rows: 7,
     spriteWidth: 48,
     spriteHeight: 48,
   },
@@ -91,8 +91,8 @@ const jumpShootRight = ex.Animation.fromSpriteSheet(heroSpriteSheet, [5], 200);
 jumpShootRight.flipHorizontal = true;
 
 
-const ladder = ex.Animation.fromSpriteSheet(heroSpriteSheet, [20], 200);
-const ladderR = ex.Animation.fromSpriteSheet(heroSpriteSheet, [21], 200);
+const ladder = ex.Animation.fromSpriteSheet(heroSpriteSheet, [30,], 200);
+const ladderR = ex.Animation.fromSpriteSheet(heroSpriteSheet, [31], 200);
 const ladderShoot = ex.Animation.fromSpriteSheet(heroSpriteSheet, [31], 200);
 const ladderShootR = ex.Animation.fromSpriteSheet(heroSpriteSheet, [31], 200);
 ladderShootR.flipHorizontal = true;

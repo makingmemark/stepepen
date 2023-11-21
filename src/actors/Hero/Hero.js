@@ -59,6 +59,8 @@ export class Hero extends ex.Actor {
     });
     this.graphics.use(anims.idleRight);
 
+    this.z = 100; // making hero z high
+
     //Identifier
     this.isHero = true;
     this.onGround = false;
@@ -95,7 +97,7 @@ export class Hero extends ex.Actor {
     // Know when we overlap a ladder, keep track of its X value
     if (evt.other.hasTag(TAG_LADDER)) {
       this.ladderOverlap = {
-        x: evt.other.pos.x + 14, // offset to nudge Hero to be right on the ladder
+        x: evt.other.pos.x + 18, // offset to nudge Hero to be right on the ladder
       };
     }
 
