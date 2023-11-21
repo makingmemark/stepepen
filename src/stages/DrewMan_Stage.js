@@ -18,10 +18,18 @@ const room1 = new Room({
       heightCells: 12,
     },
     {
-      // Main floor
+      // First part - Main floor
       x: 0,
       y: 12,
-      widthCells: 82,
+      widthCells: 8, // 82,
+      heightCells: 1,
+    },
+
+    {
+      // Main floor
+      x: 12,
+      y: 12,
+      widthCells: 80, // 82,
       heightCells: 1,
     },
 
