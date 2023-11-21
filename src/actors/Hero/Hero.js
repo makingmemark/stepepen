@@ -1,6 +1,7 @@
 import * as ex from "excalibur";
 import { DirectionQueue } from "../../classes/DirectionQueue.js";
 import { HeroBullet } from "./HeroBullet.js";
+import { DrawShapeHelper } from "../../classes/DrawShapeHelper.js";
 import {
   ANCHOR_CENTER,
   CUSTOM_EVENT_MM_DAMAGED,
@@ -50,7 +51,7 @@ export class Hero extends ex.Actor {
       width: 48,
       height: 48,
       // collider: ex.Shape.Box(11, 22, ANCHOR_CENTER, new ex.Vector(0, -3)),
-      collider: ex.Shape.Box(11, 36, ANCHOR_CENTER, new ex.Vector(0, -3)),
+      collider: ex.Shape.Box(21, 26, ANCHOR_CENTER, new ex.Vector(0, 2)),
       scale: SCALE_2x,
       collisionType: ex.CollisionType.Active,
       color: ex.Color.Green
@@ -86,7 +87,7 @@ export class Hero extends ex.Actor {
 
   onInitialize(_engine) {
     this.addTag(TAG_HERO);
-    //new DrawShapeHelper(this);
+    new DrawShapeHelper(this); // this shows shape
   }
 
   onCollisionStart(evt) {
