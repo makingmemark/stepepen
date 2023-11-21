@@ -60,7 +60,7 @@ export class NewShotman extends ex.Actor {
       collider: collisionBox,
       scale: new ex.Vector(2, 2),
       color: ex.Color.Green,
-      collisionType: ex.CollisionType.Active,
+      collisionType: ex.CollisionType.Fixed,
     });
     this.graphics.use(normalAnim);
     this.hp = new HP(5, {}, () => {

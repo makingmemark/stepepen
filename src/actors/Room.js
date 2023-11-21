@@ -24,6 +24,7 @@ export class Room extends ex.Actor {
   }
 
   onInitialize(engine) {
+
     this.floors.forEach((f) => {
       const x = this.pos.x + f.x * SCALED_CELL;
       const y = this.pos.y + f.y * SCALED_CELL;

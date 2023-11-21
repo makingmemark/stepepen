@@ -1,8 +1,8 @@
 import * as ex from "excalibur";
 import { Images } from "../../../resources.js";
-import { ANCHOR_CENTER, TAG_HERO_BULLET } from "../../../constants.js";
+import { ANCHOR_CENTER,  LEFT,RIGHT,TAG_HERO_BULLET, SCALE } from "../../../constants.js";
 import { DrawShapeHelper } from "../../../classes/DrawShapeHelper.js";
-// import { HardHatBullet } from "./HardHatBullet.js";
+import { HardHatHorizontalBullet } from "./HardHatHorizontalBullet.js";
 
 // const spriteSheet = ex.SpriteSheet.fromImageSource({
 //   image: Images.hardHatSheetImage,
@@ -94,6 +94,10 @@ export class HardHat extends ex.Actor {
     this.graphics.use(idleHidingAnim);
 
     this.on("initialize", () => {
+
+      // this.shoot(); // ah if i have this on, the handleCollisionWithMegaManBullet doesn't seem to work the same way
+      // must be to do with events etc
+
       // void this.behavior();
 
       // this.graphics.add("only", onlyAnim);
@@ -153,6 +157,37 @@ export class HardHat extends ex.Actor {
     }
   }
 
+  async shoot() {
+    await this.actions.delay(2000).toPromise();
+
+    this.graphics.use(enterHidingAnim);
+    await this.actions.delay(800).toPromise();
+    if (this.isKilled()) {
+      return;
+    }
+    
+    this.createHorizontalBullets();
+
+    await this.actions.delay(1000).toPromise();
+    this.graphics.use(idleHidingAnim);
+
+    // if (this.isKilled()) {
+    //   return;
+    // }
+    this.shoot();
+  }
+
+  createHorizontalBullets() {
+    const x = this.pos.x;
+    const y = this.pos.y + SCALE * -2;
+    this.scene.engine.add(
+      new HardHatHorizontalBullet(x - 12 * SCALE, y, LEFT)
+    );
+    this.scene.engine.add(
+      new HardHatHorizontalBullet(x + 12 * SCALE, y, RIGHT)
+    );
+  }
+
   // onPreUpdate(engine, delta) {
   //   console.log('onPreUpdate')
   // }
@@ -181,23 +216,5 @@ export class HardHat extends ex.Actor {
 
     // this.hitWithPaint = true
     
-  }
-
-  shootBullet(engine) {
-    this.shootingMsLeft = 300;
-
-    // Get ideal bullet position per direction
-    let bulletX = this.pos.x - 18 * SCALE;
-    if (this.spriteDirection === RIGHT) {
-      bulletX = this.pos.x + 18 * SCALE;
-    }
-
-    Sounds.SHOOT.play();
-    const bullet = new HeroBullet(
-      bulletX,
-      this.pos.y - 8,
-      this.spriteDirection
-    );
-    engine.add(bullet);
   }
 }

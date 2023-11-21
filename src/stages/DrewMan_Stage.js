@@ -151,7 +151,7 @@ const room1 = new Room({
     {
       type: Objs.NEW_SHOTMAN,
       x:63, // was 53
-      y: 4,
+      y:10.25,
     },
     {
       type: Objs.PIPI,
