@@ -1,6 +1,7 @@
 import * as ex from "excalibur";
 import { DirectionQueue } from "../../classes/DirectionQueue.js";
-import { HeroBullet } from "./HeroBullet.js";
+// import { HeroBullet } from "./HeroBullet.js";
+import { HeroPaintBullet } from "./HeroPaintBullet.js";
 import { DrawShapeHelper } from "../../classes/DrawShapeHelper.js";
 import {
   ANCHOR_CENTER,
@@ -425,7 +426,7 @@ export class Hero extends ex.Actor {
     }
 
     Sounds.SHOOT.play();
-    const bullet = new HeroBullet(
+    const bullet = new HeroPaintBullet(
       bulletX,
       this.pos.y - 8,
       this.spriteDirection

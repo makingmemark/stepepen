@@ -5,8 +5,8 @@ const Images = {
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-marka.png"),
   heroSheetImage: new ex.ImageSource("/sprites/bunya/stepepen.png"),
   // heroJumpSheetImage: new ex.ImageSource("/sprites/bunya/jumping.png"),
-  heroBulletImage: new ex.ImageSource("/sprites/mm-lemon-marka.png"),
   // heroBulletImage: new ex.ImageSource("/sprites/mm-lemon.png"),
+  heroBulletImage: new ex.ImageSource("/sprites/mm-paint-bullets.png"),
 
   map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1-marka-full.png"),
   // map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1.png"),
