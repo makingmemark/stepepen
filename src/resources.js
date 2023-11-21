@@ -27,7 +27,8 @@ const Images = {
 
 const Sounds = {
   LANDING: new ex.Sound("/sounds/mm-floor-landing.wav"),
-  SHOOT: new ex.Sound("/sounds/mm-bullet.wav"),
+  // SHOOT: new ex.Sound("/sounds/mm-bullet.wav"),
+  SHOOT: new ex.Sound("/sounds/Fire.wav"),
   PAIN: new ex.Sound("/sounds/mm-pain.wav"),
 };
 
