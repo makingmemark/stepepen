@@ -203,7 +203,7 @@ export class HardHat extends ex.Actor {
     other.kill();
 
     await this.actions.delay(1000).toPromise();
-    this.graphics.opacity = 0.5;
+    // this.graphics.opacity = 0.5;
     this.z = 0;
 
     
