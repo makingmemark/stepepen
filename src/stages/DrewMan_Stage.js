@@ -9,6 +9,30 @@ const room1 = new Room({
   x: 0,
   y: 0,
   limits: [SCALED_CELL * 8, (83 - 7) * SCALED_CELL - 2],
+  platforms: [
+    {
+    
+      x: 8,
+      y: 10,
+      widthCells: 3, // 82,
+      heightCells: 1,
+    },
+    {
+     
+      x: 5,
+      y: 7,
+      widthCells: 3, // 82,
+      heightCells: 1,
+    },
+    {
+    
+      x: 2,
+      y: 4,
+      widthCells: 3, // 82,
+      heightCells: 1,
+    }
+
+  ],
   floors: [
     {
       //Covers the left side exit
@@ -180,6 +204,7 @@ const room2 = new Room({
   x: SCALED_CELL * 65,
   y: SCALED_ROOM_HEIGHT * -1,
   limits: [(65 + 8) * SCALED_CELL, (83 - 7) * SCALED_CELL - 2],
+  platforms: [],
   floors: [
     //Left wall
     {
@@ -268,6 +293,7 @@ const room3 = new Room({
   x: SCALED_CELL * 65,
   y: SCALED_ROOM_HEIGHT * -2,
   limits: [(65 + 8) * SCALED_CELL, (83 + 27 - 7) * SCALED_CELL - 2],
+  platforms: [],
   floors: [
     // Left wall
     {

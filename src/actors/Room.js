@@ -1,6 +1,7 @@
 import * as ex from "excalibur";
 import { ANCHOR_TOP_LEFT, Objs, SCALE_2x, SCALED_CELL } from "../constants.js";
 import { Floor } from "./Floor.js";
+import { Platform } from "./Platform.js";
 import { Ladder } from "./Ladder.js";
 import { HardHat } from "./enemies/HardHat/HardHat.js";
 import { Pipi } from "./enemies/Pipi/Pipi.js";
@@ -9,13 +10,14 @@ import { RoomChange } from "./RoomChange.js";
 import { DrawShapeHelper } from "../classes/DrawShapeHelper.js";
 
 export class Room extends ex.Actor {
-  constructor({ x, y, image, floors, objects, limits }) {
+  constructor({ x, y, image, platforms, floors, objects, limits }) {
     super({
       anchor: ANCHOR_TOP_LEFT,
       pos: new ex.Vector(x, y),
       scale: SCALE_2x,
     });
 
+    this.platforms = platforms;
     this.floors = floors;
     this.objects = objects;
     this.limits = limits || [];
@@ -27,6 +29,14 @@ export class Room extends ex.Actor {
   onInitialize(engine) {
 
     // new DrawShapeHelper(this);
+
+    this.platforms.forEach((f) => {
+      const x = this.pos.x + f.x * SCALED_CELL;
+      const y = this.pos.y + f.y * SCALED_CELL;
+
+      const platform = new Platform(x, y, f.widthCells, f.heightCells);
+      engine.add(platform);
+    });
 
     this.floors.forEach((f) => {
       const x = this.pos.x + f.x * SCALED_CELL;

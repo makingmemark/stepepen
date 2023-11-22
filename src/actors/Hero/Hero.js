@@ -128,7 +128,7 @@ export class Hero extends ex.Actor {
   }
 
   onPostCollision(evt) {
-    if (evt.other.isFloor && evt.side === ex.Side.Bottom) {
+    if (evt.other.isFloor && evt.side === ex.Side.Bottom || evt.other.isPlatform && evt.side === ex.Side.Bottom) {
       if (!this.onGround) {
         Sounds.LANDING.play();
       }
