@@ -64,6 +64,7 @@ export class Hero extends ex.Actor {
     //Identifier
     this.isHero = true;
     this.onGround = false;
+    this.onPlatform = true;
 
     // States
     this.painState = null;
@@ -119,6 +120,7 @@ export class Hero extends ex.Actor {
   }
 
   onCollisionEnd(evt) {
+    console.log('onCollisionEnd:',evt.other)
     if (evt.other.hasTag(TAG_LADDER)) {
       this.ladderOverlap = null;
     }
@@ -129,6 +131,10 @@ export class Hero extends ex.Actor {
 
   onPostCollision(evt) {
     if (evt.other.isFloor && evt.side === ex.Side.Bottom || evt.other.isPlatform && evt.side === ex.Side.Bottom) {
+      // console.log('collided with :',evt.other, evt.side )
+
+      if(evt.other.isPlatform && evt.side === ex.Side.Bottom)  this.onPlatform = true;
+
       if (!this.onGround) {
         Sounds.LANDING.play();
       }
@@ -178,8 +184,10 @@ export class Hero extends ex.Actor {
       }
     });
 
+    console.log(this.vel.y)
     //Reset grounding
     if (this.vel.y !== 0) {
+      if(this.onPlatform) return;
       this.onGround = false;
     }
     // Always downtick timers

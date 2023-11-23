@@ -16,6 +16,7 @@ const room1 = new Room({
       y: 10,
       widthCells: 3, // 82,
       heightCells: 1,
+      dir: 1
     },
     {
      
@@ -23,6 +24,7 @@ const room1 = new Room({
       y: 7,
       widthCells: 3, // 82,
       heightCells: 1,
+      dir: 1
     },
     {
     
@@ -30,6 +32,7 @@ const room1 = new Room({
       y: 4,
       widthCells: 3, // 82,
       heightCells: 1,
+      dir: 1
     }
 
   ],

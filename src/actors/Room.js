@@ -34,7 +34,7 @@ export class Room extends ex.Actor {
       const x = this.pos.x + f.x * SCALED_CELL;
       const y = this.pos.y + f.y * SCALED_CELL;
 
-      const platform = new Platform(x, y, f.widthCells, f.heightCells);
+      const platform = new Platform(x, y, f.widthCells, f.heightCells, f.dir);
       engine.add(platform);
     });
 
