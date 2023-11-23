@@ -479,6 +479,7 @@ export class Hero extends ex.Actor {
   }
 
   getWalkingAnim(index) {
+    /*
     if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.25) {
       return animationMap["WALK1"][index];
     }
@@ -488,7 +489,21 @@ export class Hero extends ex.Actor {
     if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.75) {
       return animationMap["WALK3"][index];
     }
-    return animationMap["WALK2"][index];
+    */
+    if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.20) {
+      return animationMap["WALK5"][index];
+    }
+    if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.4) {
+      return animationMap["WALK4"][index];
+    }
+    if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.6) {
+      return animationMap["WALK3"][index];
+    }
+    if (this.walkingAnimationFramesMs < WALK_TOTAL_MS * 0.8) {
+      return animationMap["WALK2"][index];
+    }
+
+    return animationMap["WALK1"][index];
   }
 
   getRunningAnim(index) {
