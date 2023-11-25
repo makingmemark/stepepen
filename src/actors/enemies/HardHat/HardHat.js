@@ -19,8 +19,8 @@ const spriteSheet = ex.SpriteSheet.fromImageSource({
   grid: {
     columns: 4,
     rows: 3,
-    spriteWidth: 24,
-    spriteHeight: 24,
+    spriteWidth: 26,
+    spriteHeight: 28,
   },
 });
 

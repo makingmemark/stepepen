@@ -126,11 +126,11 @@ const room1 = new Room({
     //   // widthCells: 2,
     //   heightCells: 4
     // },
-    // {
-    //   type: Objs.HARD_HAT,
-    //   x:55, // was 53
-    //   y: 7.25,
-    // },
+    {
+      type: Objs.HARD_HAT,
+      x:45, // was 53
+      y: 11.15,
+    },
     // {
     //   type: Objs.NEW_SHOTMAN,
     //   x:63, // was 53

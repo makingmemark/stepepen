@@ -408,7 +408,7 @@ export class Hero extends ex.Actor {
     };
 
     Sounds.PAIN.play();
-    const painFlash = new HeroPain(this);
+    const painFlash = new HeroPain(this); // lockToActor so it follows hero
     engine.add(painFlash);
 
     void this.beginPainFlashing();
