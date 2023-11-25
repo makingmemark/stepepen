@@ -25,7 +25,7 @@ export class PipiEgg extends ex.Actor {
   }
 
   onInitialize(_engine) {
-    new DrawShapeHelper(this);
+    // new DrawShapeHelper(this);
 
     this.on("collisionstart", (ev) => {
       if (ev.other.hasTag(TAG_HERO_BULLET)) {

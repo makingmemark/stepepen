@@ -22,6 +22,7 @@ const room1 = new Room({
       widthCells: 1,
       heightCells: 12,
     },
+    // first floor
     {
       x: 0,
       y: 12,
@@ -59,154 +60,87 @@ const room1 = new Room({
         heightCells: 9,
     },
 
-    // 4 gap
-    // {
-    //   // Main floor
-    //   x: 12,
-    //   y: 12,
-    //   widthCells: 80, // 82,
-    //   heightCells: 1,
-    // },
-
-    //First hump
-    // {
-    //   x: 20,
-    //   y: 11,
-    //   widthCells: 5,
-    //   heightCells: 1,
-    // },
-    // {
-    //   x: 21,
-    //   y: 10,
-    //   widthCells: 3,
-    //   heightCells: 1,
-    // },
-
-    //Second hump
     {
-      x: 36,
-      y: 11,
-      widthCells: 14,
-      heightCells: 1,
+        x: 36,
+        y: 12,
+        widthCells: 12, // 82,
+        heightCells: 1,
     },
     {
-      x: 36,
-      y: 10,
-      widthCells: 13,
-      heightCells: 1,
+        x: 46,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 3,
     },
     {
-      x: 37,
-      y: 9,
-      widthCells: 9,
-      heightCells: 1,
+        x: 46,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 3,
     },
     {
-      x: 41,
-      y: 8,
-      widthCells: 5,
-      heightCells: 1,
-    },
-
-    //Third hump
-    {
-      x: 52,
-      y: 11,
-      widthCells: 16,
-      heightCells: 1,
+        x: 50,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 1,
     },
     {
-      x: 52,
-      y: 10,
-      widthCells: 6,
-      heightCells: 1,
+        x: 53,
+        y: 8,
+        widthCells: 1, // 82,
+        heightCells: 1,
     },
     {
-      x: 52,
-      y: 9,
-      widthCells: 4,
-      heightCells: 1,
+        x: 56,
+        y: 6,
+        widthCells: 1, // 82,
+        heightCells: 1,
     },
     {
-      x: 54,
-      y: 8,
-      widthCells: 2,
-      heightCells: 1,
+        x: 59,
+        y: 4,
+        widthCells: 2, // 82,
+        heightCells: 1,
     },
     {
-      x: 65,
-      y: 10,
-      widthCells: 3,
-      heightCells: 1,
+        x: 63,
+        y: 12,
+        widthCells: 7, // 82,
+        heightCells: 1,
+    },
+    {
+        x: 69,
+        y: 2,
+        widthCells: 1, // 82,
+        heightCells: 10,
     },
 
-    //Lower ceiling/ room ground
-    {
-      x: 70,
-      y: 6,
-      widthCells: 10, //was 11
-      heightCells: 4,
-    },
-    //room side wall
-    {
-      x: 68,
-      y: 1,
-      widthCells: 2,
-      heightCells: 7,
-    },
-    // small first wall portion
-    {
-      x: 67,
-      y: 4,
-      widthCells: 1,
-      heightCells: 2,
-    },
-    // top roof first portion
-    {
-      x: 70,
-      y: 0,
-      widthCells: 7,
-      heightCells: 2,
-    },
-    // top roof 2nd portion
-    {
-      x: 78,
-      y: 0,
-      widthCells: 7,
-      heightCells: 2,
-    },
-    // far right wall
-    {
-      x: 82,
-      y: 2,
-      widthCells: 1,
-      heightCells: 11,
-    },
+    
   ],
   objects: [
     // By the rules, this should come in from the OTHER room
-    {
-      type: Objs.LADDER,
-      x: 80.5, //81 
-      y: 6,
-      // widthCells: 2,
-      heightCells: 4
-    },
-    {
-      type: Objs.HARD_HAT,
-      x:55, // was 53
-      y: 7.25,
-    },
-    {
-      type: Objs.NEW_SHOTMAN,
-      x:63, // was 53
-      y:10.25,
-    },
-    {
-      type: Objs.PIPI,
-      x:53, // was 53
-      y: 4,
-    },
+    // {
+    //   type: Objs.LADDER,
+    //   x: 80.5, //81 
+    //   y: 6,
+    //   // widthCells: 2,
+    //   heightCells: 4
+    // },
+    // {
+    //   type: Objs.HARD_HAT,
+    //   x:55, // was 53
+    //   y: 7.25,
+    // },
+    // {
+    //   type: Objs.NEW_SHOTMAN,
+    //   x:63, // was 53
+    //   y:10.25,
+    // },
+    // {
+    //   type: Objs.PIPI,
+    //   x:53, // was 53
+    //   y: 4,
+    // },
   ],
 });
 
@@ -405,7 +339,8 @@ const room3 = new Room({
 
 export class Mario_Stage {
   constructor() {
-    this.rooms = [room1, room2, room3];
+    // this.rooms = [room1, room2, room3];
+    this.rooms = [room1];
   }
 
   get firstMap() {
