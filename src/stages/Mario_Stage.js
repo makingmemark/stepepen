@@ -11,6 +11,23 @@ const room1 = new Room({
   limits: [SCALED_CELL * 8, (83 - 7) * SCALED_CELL - 2],
   
   platforms: [
+    
+    //   {
+       
+    //     x: 5,
+    //     y: 7,
+    //     widthCells: 3, // 82,
+    //     heightCells: 1,
+    //     dir: 1
+    //   },
+    //   {
+      
+    //     x: 2,
+    //     y: 4,
+    //     widthCells: 3, // 82,
+    //     heightCells: 1,
+    //     dir: 1
+    //   }
    
   ],
   
@@ -114,15 +131,15 @@ const room1 = new Room({
         y: 12,
         widthCells: 7, // 82,
         heightCells: 1,
-    },
+    }, 
+  ],
+  portals: [
     {
         x: 69,
         y: 2,
         widthCells: 1, // 82,
         heightCells: 10,
-    },
-
-    
+    }
   ],
   objects: [
     // By the rules, this should come in from the OTHER room
@@ -215,6 +232,8 @@ const room2 = new Room({
       widthCells: 13,
       heightCells: 1,
     },
+  ],
+  portals: [
   ],
   objects: [
     {
@@ -326,6 +345,8 @@ const room3 = new Room({
       widthCells: 1,
       heightCells: 4,
     },
+  ],
+  portals: [
   ],
   objects: [
     {

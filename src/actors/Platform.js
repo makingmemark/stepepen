@@ -2,6 +2,9 @@ import * as ex from "excalibur";
 import { SCALE_2x } from "../constants.js";
 import { DrawShapeHelper } from "../classes/DrawShapeHelper.js";
 import { Images } from "../resources.js";
+import {
+  TAG_PLATFORM
+} from "../constants.js";
 
 const blockSprite = Images.blockImage.toSprite();
 
@@ -9,8 +12,6 @@ export class Platform extends ex.Actor {
   constructor(x, y, cols, rows, dir) {
     const SIZEW = 20;
     const SIZEH = 16;
-
-   
 
     super({
       name: "Platform",
@@ -43,18 +44,19 @@ export class Platform extends ex.Actor {
     // this.graphics.opacity = 0.0;
 
     this.isPlatform = true;
+    this.addTag(TAG_PLATFORM);
   }
   onInitialize(engine) {
     // new DrawShapeHelper(this);
 
-    // this.actions.delay(1000)
-    //   .repeatForever(ctx => ctx
-    //     .moveBy(400 * this.dir, 0, 100)
-    //     .moveBy(-400 * this.dir, 0, 100));
+    this.actions.delay(1000)
+      .repeatForever(ctx => ctx
+        .moveBy(400 * this.dir, 0, 100)
+        .moveBy(-400 * this.dir, 0, 100));
 
-        this.actions.delay(1000)
-        .repeatForever(ctx => ctx
-          .moveBy(0, 100 * this.dir, 150)
-          .moveBy(0, -100 * this.dir, 150));
+        // this.actions.delay(1000)
+        // .repeatForever(ctx => ctx
+        //   .moveBy(0, 100 * this.dir, 150)
+        //   .moveBy(0, -100 * this.dir, 150));
   }
 }

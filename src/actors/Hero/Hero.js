@@ -14,6 +14,8 @@ import {
   SCALE_2x,
   SCALE,
   TAG_LADDER,
+  TAG_PORTAL,
+  TAG_PLATFORM,
   DEAD_Y,
   TAG_LADDER_DETECT_TOP,
   MAX_HP,
@@ -66,7 +68,7 @@ export class Hero extends ex.Actor {
     //Identifier
     this.isHero = true;
     this.onGround = false;
-    this.onPlatform = true;
+    // this.onPlatform = true;
 
     // States
     this.painState = null;
@@ -75,6 +77,7 @@ export class Hero extends ex.Actor {
 
     this.isOverlappingLadderTop = false;
     this.ladderOverlap = null;
+    this.platformOverlap = null;
 
     this.directionQueue = new DirectionQueue();
     this.spriteDirection = RIGHT;
@@ -97,11 +100,26 @@ export class Hero extends ex.Actor {
   }
 
   onCollisionStart(evt) {
+
+    if (evt.other.hasTag(TAG_PORTAL)) {
+      alert('BRAVO STEPEPEN!')
+    }
+
     // Know when we overlap a ladder, keep track of its X value
     if (evt.other.hasTag(TAG_LADDER)) {
       this.ladderOverlap = {
         x: evt.other.pos.x + 18, // offset to nudge Hero to be right on the ladder
       };
+    }
+
+
+    if (evt.other.hasTag(TAG_PLATFORM)) {
+      this.onGround = true;
+      // this.onPlatform = true;
+      // this.platformOverlap = {
+      //   y: evt.other.pos.y + 18, // offset to nudge Hero to be right on the ladder
+      // };
+      // this.setPlatformLocked(true)
     }
 
     // Know when we overlap the top of a ladder
@@ -122,9 +140,14 @@ export class Hero extends ex.Actor {
   }
 
   onCollisionEnd(evt) {
-    console.log('onCollisionEnd:',evt.other)
+    // console.log('onCollisionEnd:',evt.other)
     if (evt.other.hasTag(TAG_LADDER)) {
       this.ladderOverlap = null;
+    }
+    if (evt.other.hasTag(TAG_PLATFORM)) {
+      // this.platformOverlap = null;
+      // this.onPlatform = true;
+      this.onGround = false;
     }
     if (evt.other.hasTag(TAG_LADDER_DETECT_TOP)) {
       this.isOverlappingLadderTop = false;
@@ -132,10 +155,11 @@ export class Hero extends ex.Actor {
   }
 
   onPostCollision(evt) {
-    if (evt.other.isFloor && evt.side === ex.Side.Bottom || evt.other.isPlatform && evt.side === ex.Side.Bottom) {
+    if (evt.other.isFloor && evt.side === ex.Side.Bottom) {
+      // || evt.other.isPlatform && evt.side === ex.Side.Bottom
       // console.log('collided with :',evt.other, evt.side )
 
-      if(evt.other.isPlatform && evt.side === ex.Side.Bottom)  this.onPlatform = true;
+      // if(evt.other.isPlatform && evt.side === ex.Side.Bottom)  this.onPlatform = true;
 
       if (!this.onGround) {
         Sounds.LANDING.play();
@@ -166,6 +190,19 @@ export class Hero extends ex.Actor {
       return;
     }
     this.body.collisionType = ex.CollisionType.Active;
+  }
+
+  setPlatformLocked(newValue) {
+    console.log('setPlaformLocked, x', this.pos.x)
+    // this.climbingLadderState = newValue;
+    this.vel.y = 0;
+    // this.vel.x = 0;
+    if (newValue) {
+      this.pos.y = this.platformOverlap.y;
+      // this.body.collisionType = ex.CollisionType.Passive;
+      return;
+    }
+    // this.body.collisionType = ex.CollisionType.Active;
   }
 
   onPreUpdatePhysics(engine, delta) {

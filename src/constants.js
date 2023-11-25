@@ -19,6 +19,9 @@ export const ANCHOR_CENTER = new ex.Vector(0.5, 0.5);
 
 export const SCALE_2x = new ex.Vector(2, 2);
 
+export const START_X = 14; // 14
+export const START_Y = 2;
+
 export const CUSTOM_EVENT_MM_HP_UPDATE = "CUSTOM_EVENT_MM_HP_UPDATE";
 export const CUSTOM_EVENT_HERO_DEAD = "CUSTOM_EVENT_HERO_DEAD";
 export const CUSTOM_EVENT_MM_DAMAGED = "CUSTOM_EVENT_MM_DAMAGED";
@@ -34,6 +37,8 @@ export const TAG_HERO_BULLET = "TAG_HERO_BULLET";
 export const TAG_HADHAT_BULLET = "TAG_HADHAT_BULLET";
 export const TAG_LADDER = "TAG_LADDER";
 export const TAG_LADDER_DETECT_TOP = "TAG_LADDER_DETECT_TOP";
+export const TAG_PORTAL = "TAG_PORTAL";
+export const TAG_PLATFORM = "TAG_PLATFORM";
 
 export const Objs = {
   MAP_CHANGE: "MAP_CHANGE",

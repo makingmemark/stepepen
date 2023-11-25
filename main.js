@@ -6,7 +6,9 @@ import {
   SCALE,
   SCALED_CELL,
   TAG_HERO,
-  CUSTOM_EVENT_HERO_DEAD
+  CUSTOM_EVENT_HERO_DEAD,
+  START_X,
+  START_Y
 } from "./src/constants.js";
 import { Lifebar } from "./src/hud/Lifebar.js";
 import { HeroHp } from "./src/classes/HeroHp.js";
@@ -40,7 +42,7 @@ async function main() {
   });
 
   // const hero = new Hero(45 * SCALED_CELL, 2 * SCALED_CELL);
-  const hero = new Hero(14 * SCALED_CELL, 2 * SCALED_CELL); // 14
+  const hero = new Hero(START_X  * SCALED_CELL, START_Y * SCALED_CELL); // 14
   game.add(hero);
   const cameraStrategy = new MM_CameraStrategy(hero);
   cameraStrategy.setRoomLimits(stage.firstMap.limits);
@@ -68,7 +70,7 @@ async function main() {
 
   function resetGame() {
     console.log('resetGame');
-    const hero = new Hero(14 * SCALED_CELL, 2 * SCALED_CELL); // 14
+    const hero = new Hero(START_X * SCALED_CELL, START_Y * SCALED_CELL); // 14
     game.add(hero);
     cameraStrategy.setTarget(hero);
 
