@@ -53,7 +53,7 @@ const room1 = new Room({
         heightCells: 7,
     },
     {
-        x: 33,
+        x: 34,
         y: 4,
         widthCells: 2, // 82,
         heightCells: 9,
