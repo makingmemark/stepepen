@@ -184,10 +184,10 @@ export class Hero extends ex.Actor {
       }
     });
 
-    console.log(this.vel.y)
+    // console.log(this.vel.y)
     //Reset grounding
     if (this.vel.y !== 0) {
-      if(this.onPlatform) return;
+      // if(this.onPlatform) return;
       this.onGround = false;
     }
     // Always downtick timers
@@ -469,7 +469,7 @@ export class Hero extends ex.Actor {
       return;
     }
     if (this.vel.x !== 0) {
-      console.log(index, this.vel.x)
+      // console.log(index, this.vel.x)
       //check if run button if pressed if so: 
       
       if (this.vel.x >= RUNNING_VELOCITY || this.vel.x <= -RUNNING_VELOCITY ) {

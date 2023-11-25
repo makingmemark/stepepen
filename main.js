@@ -9,7 +9,8 @@ import {
 } from "./src/constants.js";
 import { Lifebar } from "./src/hud/Lifebar.js";
 import { HeroHp } from "./src/classes/HeroHp.js";
-import { DrewMan_Stage } from "./src/stages/DrewMan_Stage.js";
+// import { DrewMan_Stage } from "./src/stages/DrewMan_Stage.js";
+import { Mario_Stage } from "./src/stages/Mario_Stage.js";
 import { loader } from "./src/resources.js";
 
 async function main() {
@@ -30,7 +31,7 @@ async function main() {
 
   //-----------------------------------------------------------------------------------------
 
-  const stage = new DrewMan_Stage();
+  const stage = new Mario_Stage();
   stage.rooms.forEach((room) => {
     game.add(room);
   });
