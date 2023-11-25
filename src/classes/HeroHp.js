@@ -1,4 +1,5 @@
 import {
+  CUSTOM_EVENT_HERO_DEAD,
   CUSTOM_EVENT_MM_DAMAGED,
   CUSTOM_EVENT_MM_HP_UPDATE,
   MAX_HP,
@@ -17,7 +18,12 @@ export class HeroHp {
   }
 
   init() {
+    console.log('HeroHp init');
     this.engine.emit(CUSTOM_EVENT_MM_HP_UPDATE, this.hp);
+  }
+
+  resetHp() {
+    this.hp = MAX_HP;
   }
 
   subtract(n) {
@@ -38,5 +44,10 @@ export class HeroHp {
     const heroDie = new HeroDie(this.hero.pos.x, this.hero.pos.y);
     this.engine.add(heroDie);
     this.hero.kill();
+
+    setTimeout(() => {
+      this.engine.emit(CUSTOM_EVENT_HERO_DEAD);
+      heroDie.kill();
+    }, 2500);
   }
 }

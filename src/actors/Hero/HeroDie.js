@@ -33,6 +33,10 @@ export class HeroDie extends ex.Actor {
       (direction) => {
         const expl = new HeroDieExplosion(this.pos.x, this.pos.y, direction);
         engine.add(expl);
+
+        setTimeout(() => {
+          expl.kill();
+        }, 2000);
       }
     );
   }

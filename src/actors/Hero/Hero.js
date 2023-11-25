@@ -14,7 +14,9 @@ import {
   SCALE_2x,
   SCALE,
   TAG_LADDER,
+  DEAD_Y,
   TAG_LADDER_DETECT_TOP,
+  MAX_HP,
 } from "../../constants.js";
 import { HeroPain } from "./HeroPain.js";
 import { Sounds } from "../../resources.js";
@@ -184,7 +186,15 @@ export class Hero extends ex.Actor {
       }
     });
 
-    // console.log(this.vel.y)
+    
+
+    // console.log(this.pos.y)
+
+    if(this.pos.y > DEAD_Y) {
+      console.log('Below Ground');
+      this.takeDamage(MAX_HP)
+    }
+
     //Reset grounding
     if (this.vel.y !== 0) {
       // if(this.onPlatform) return;

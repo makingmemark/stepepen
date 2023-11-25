@@ -10,6 +10,10 @@ export class MM_CameraStrategy {
     this.rightLimit = 9999;
   }
 
+  setTarget(target) {
+    this.target = target;
+  }
+
   compensateForMapHeight(n) {
     return n + SCALED_CELL * 7.5;
   }

@@ -36,7 +36,7 @@ const Sounds = {
 };
 
 const loader = new ex.Loader();
-loader.suppressPlayButton = true;
+loader.suppressPlayButton = true; // hides play button
 const allResources = { ...Images, ...Sounds };
 for (const res in allResources) {
   loader.addResource(allResources[res]);

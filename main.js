@@ -6,6 +6,7 @@ import {
   SCALE,
   SCALED_CELL,
   TAG_HERO,
+  CUSTOM_EVENT_HERO_DEAD
 } from "./src/constants.js";
 import { Lifebar } from "./src/hud/Lifebar.js";
 import { HeroHp } from "./src/classes/HeroHp.js";
@@ -22,6 +23,8 @@ async function main() {
     antialiasing: false, // Pixel art graphics,
     backgroundColor: ex.Color.fromHex('#000000')
   });
+
+  // game.showDebug(true);
 
   // Set global gravity
   ex.Physics.acc = new ex.Vector(0, 1500);
@@ -63,7 +66,25 @@ async function main() {
     hero.setTransitioningRooms(null);
   });
 
-  await game.start(loader);
+  function resetGame() {
+    console.log('resetGame');
+    const hero = new Hero(14 * SCALED_CELL, 2 * SCALED_CELL); // 14
+    game.add(hero);
+    cameraStrategy.setTarget(hero);
+
+    mmHp.resetHp();
+    mmHp.init();
+    mmHp.hero = hero;
+  }
+
+  game.on(CUSTOM_EVENT_HERO_DEAD, async (event ) => {
+    if(event) {
+      console.log('dead event received in main')
+      resetGame();
+    }
+  });
+
+  await game.start(loader); // will load and then immediately start of suppressPlayButton is true
 
   mmHp.init();
   mmHp.hero = hero;
@@ -71,3 +92,71 @@ async function main() {
 
 // Call the main function to start the game
 main();
+
+
+/*
+// this works - basic
+// https://github.com/mattjennings/excalibur-router/tree/main
+
+import * as ex from 'excalibur'
+import { Router, FadeTransition } from 'excalibur-router'
+
+const engine = new ex.Engine({
+  width: 800,
+  height: 600,
+  displayMode: ex.DisplayMode.FitScreen,
+})
+
+class Level1 extends ex.Scene {
+  onInitialize(engine) {
+    engine.add(
+      new ex.Label({
+        x: 100,
+        y: 100,
+        text: 'Level 1 - click to go to level 2',
+        font: new ex.Font({
+          size: 48,
+        }),
+      })
+    )
+  }
+
+  onActivate() {
+    this.engine.input.pointers.primary.once('down', () => {
+      router.goto('level2', { transition: new FadeTransition() })
+    })
+  }
+}
+
+class Level2 extends ex.Scene {
+  onInitialize(engine) {
+    engine.add(
+      new ex.Label({
+        x: 100,
+        y: 100,
+        text: 'Level 2 - click to go to level 1',
+        font: new ex.Font({
+          size: 48,
+        }),
+      })
+    )
+  }
+
+  onActivate() {
+    this.engine.input.pointers.primary.once('down', () => {
+      router.goto('level1', { transition: new FadeTransition() })
+    })
+  }
+}
+
+const router = new Router({
+  routes: {
+    level1: Level1,
+    level2: Level2,
+  },
+})
+
+router.start(engine).then(() => {
+  router.goto('level1')
+})
+*/

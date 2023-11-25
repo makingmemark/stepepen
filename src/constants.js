@@ -20,10 +20,14 @@ export const ANCHOR_CENTER = new ex.Vector(0.5, 0.5);
 export const SCALE_2x = new ex.Vector(2, 2);
 
 export const CUSTOM_EVENT_MM_HP_UPDATE = "CUSTOM_EVENT_MM_HP_UPDATE";
+export const CUSTOM_EVENT_HERO_DEAD = "CUSTOM_EVENT_HERO_DEAD";
 export const CUSTOM_EVENT_MM_DAMAGED = "CUSTOM_EVENT_MM_DAMAGED";
 export const CUSTOM_EVENT_CAMERA_Y_CHANGE = "CUSTOM_EVENT_CAMERA_Y_CHANGE";
 
 export const MAX_HP = 28;
+
+export const GROUND_Y = 353;
+export const DEAD_Y = GROUND_Y + ROOM_HEIGHT_1PX/3;
 
 export const TAG_HERO = "TAG_HERO";
 export const TAG_HERO_BULLET = "TAG_HERO_BULLET";
