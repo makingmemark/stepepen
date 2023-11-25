@@ -37,7 +37,7 @@ async function main() {
   });
 
   // const hero = new Hero(45 * SCALED_CELL, 2 * SCALED_CELL);
-  const hero = new Hero(42 * SCALED_CELL, 2 * SCALED_CELL); // 14
+  const hero = new Hero(14 * SCALED_CELL, 2 * SCALED_CELL); // 14
   game.add(hero);
   const cameraStrategy = new MM_CameraStrategy(hero);
   cameraStrategy.setRoomLimits(stage.firstMap.limits);
