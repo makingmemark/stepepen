@@ -25,11 +25,11 @@ const room1 = new Room({
     {
       x: 0,
       y: 12,
-      widthCells: 24, // 82,
+      widthCells: 23, // 82,
       heightCells: 1,
     },
     {
-        x: 22,
+        x: 21,
         y: 10,
         widthCells: 1, // 82,
         heightCells: 3,
