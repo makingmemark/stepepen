@@ -25,8 +25,11 @@ import { Sounds } from "../../resources.js";
 import anims, { animationMap } from "./animations.js";
 
 //MOVING SPEEDS
-const WALKING_VELOCITY = 150; // was 180
-const RUNNING_VELOCITY = 240; // was 180
+const WALKING_VELOCITY = 150; // was 150
+const RUNNING_VELOCITY = 240; // was 240
+
+const ACCELERATION = 600; // Acceleration speed
+const FRICTION = 0.90; // Friction factor (between 0 and 1)
 
 const JUMP_VELOCITY = -600;
 const LADDER_JUMP_VELOCITY = -200;
@@ -344,7 +347,7 @@ export class Hero extends ex.Actor {
       }
 
       // Assume no movement
-      this.vel.x = 0;
+      // this.vel.x = 0; // TODO: check if this ok
 
       // Do what the current arrow says
       if (this.directionQueue.direction) {
@@ -372,6 +375,14 @@ export class Hero extends ex.Actor {
           } 
         }
       }
+      else {
+        // Apply friction when no direction is pressed
+        
+        this.vel.x *= FRICTION;
+        console.log(this.vel.x)
+        if(this.vel.x > -10 && this.vel.x < 10) this.vel.x = 0;
+      }
+      
 
       // Work on running frames
       if (this.vel.x !== 0) {
