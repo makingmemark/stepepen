@@ -22,12 +22,19 @@ const room1 = new Room({
       widthCells: 1,
       heightCells: 12,
     },
-    // first floor
+    // first portion
     {
       x: 0,
       y: 12,
-      widthCells: 23, // 82,
+      widthCells: 6, // 82,
       heightCells: 1,
+    },
+    // second portion
+    {
+        x: 6,
+        y: 12,
+        widthCells: 17, // 82,
+        heightCells: 1,
     },
     {
         x: 21,
