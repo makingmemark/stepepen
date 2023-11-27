@@ -431,7 +431,7 @@ export class Hero extends ex.Actor {
 
     // Demo pain setter
     if (engine.input.keyboard.wasPressed(ex.Input.Keys.Space)) {
-      this.takeDamage(22);
+      // this.takeDamage(22);
     }
   }
 

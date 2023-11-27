@@ -1,7 +1,7 @@
 import * as ex from "excalibur";
 
-// let punkImage = 'punk9007-all-sheet.png';
-let punkImage = 'punk9255-all-sheet.png';
+let punkImage = 'punk9007-all-sheet.png';
+// let punkImage = 'punk9255-all-sheet.png';
 
 const Images = {
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-drew-blue-sheet.png"),
