@@ -158,7 +158,7 @@ const room1 = new Room({
     },
     {
       type: Objs.HARD_HAT,
-      x:66, // was 53
+      x:67, // was 53
       y: 11.15,
       id: 9255
     },
