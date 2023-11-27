@@ -89,10 +89,26 @@ async function main() {
 
   await game.start(loader); // will load and then immediately start of suppressPlayButton is true
 
+  const myLabel = new ex.Label({
+    text: "work-in-progress // arrow keys to move, z to jump, x to fire/run",
+    x: 15 * SCALED_CELL, // X position
+    y: 1 * SCALED_CELL, // Y position
+    font: new ex.Font({
+      family: "Arial",
+      size: 15,
+      unit: "px",
+      textAlign: ex.TextAlign.Center
+    }),
+    color: ex.Color.Black
+  });
+  game.add(myLabel);
+
   Soundtracks.LEVEL1.loop = true;
   Soundtracks.LEVEL1.play()
   mmHp.init();
   mmHp.hero = hero;
+
+
 }
 
 // Call the main function to start the game

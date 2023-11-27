@@ -34,7 +34,7 @@ const FRICTION = 0.90; // Friction factor (between 0 and 1)
 const JUMP_VELOCITY = -600;
 const LADDER_JUMP_VELOCITY = -200;
 const LADDER_CLIMB_VELOCITY = 100;
-const PAIN_PUSHBACK_VELOCITY = 50;
+const PAIN_PUSHBACK_VELOCITY = 100;
 const ROOM_TRANSITION_VELOCITY = 20;
 const MAX_FALLING_VELOCITY = 400;
 
@@ -455,10 +455,12 @@ export class Hero extends ex.Actor {
     const engine = this.scene.engine;
 
     if (this.isFlashingInPain) {
-      return;
+      // return; // don't return as we want hero to be pushed off, but nnot to lose more health
+    } else {
+      engine.emit(CUSTOM_EVENT_MM_DAMAGED, num);
     }
 
-    engine.emit(CUSTOM_EVENT_MM_DAMAGED, num);
+    
 
     this.setLadderLocked(false); //Fall off ladder if on one
     this.painState = {

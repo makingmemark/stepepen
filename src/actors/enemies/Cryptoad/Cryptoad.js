@@ -88,6 +88,7 @@ export class Cryptoad extends ex.Actor {
     });
 
     this.hitWithPaint = false;
+    this.damagesHeroWithNumber = 4;
 
     // paintAnim.events.on('end', () => {
     //   // this.paintAnimPlayed = true;
