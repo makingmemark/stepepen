@@ -44,6 +44,9 @@ idleHidingAnim.strategy = ex.AnimationStrategy.Freeze;
 const paintAnim = ex.Animation.fromSpriteSheet(spriteSheet, [8,9,10,11], 50);
 paintAnim.strategy = ex.AnimationStrategy.Freeze;
 
+const paintIdleAnim = ex.Animation.fromSpriteSheet(spriteSheet, [7], 200);
+paintIdleAnim.strategy = ex.AnimationStrategy.Freeze;
+
 const exitHidingAnim = ex.Animation.fromSpriteSheet(
   spriteSheet,
   // [0, 1, 2],
@@ -164,9 +167,12 @@ export class HardHat extends ex.Actor {
 
     await this.actions.delay(2000).toPromise();
 
+    if (this.hitWithPaint) {
+      return;
+    }
     this.graphics.use(enterHidingAnim);
     await this.actions.delay(800).toPromise();
-    if (this.isKilled()) {
+    if (this.hitWithPaint) {
       return;
     }
     
@@ -204,17 +210,22 @@ export class HardHat extends ex.Actor {
 
 
   async handleCollisionWithMegaManBullet(other) {
-    console.log('collision with megaman bullet, play color animation!')
-
+    console.log('collision with megaman bullet, play color animation!, other', other)
+     
+    // await this.actions.delay(50).toPromise();
+    other.kill();
+    
     this.hitWithPaint = true
     this.body.collisionType = ex.CollisionType.PreventCollision;
-    await this.actions.delay(100).toPromise(); // wait one second so bullet gets to  him
+    // await this.actions.delay(100).toPromise(); // wait one second so bullet gets to  him
     this.graphics.use(paintAnim); //  show anim
-    other.kill();
+    
 
     await this.actions.delay(1000).toPromise();
+    this.graphics.use(paintIdleAnim);
     // this.graphics.opacity = 0.5;
-    this.z = 0;
+    // this.z = 0;
+    
 
     // this.kill();
     // other.deflect(); // if we want to deflect
