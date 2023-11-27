@@ -95,7 +95,7 @@ export class HardHat extends ex.Actor {
 
     this.on("initialize", () => {
 
-      // this.shoot(); // ah if i have this on, the handleCollisionWithMegaManBullet doesn't seem to work the same way
+      if(!this.hitWithPaint) this.shoot(); // ah if i have this on, the handleCollisionWithMegaManBullet doesn't seem to work the same way
       // must be to do with events etc
 
       // void this.behavior();
@@ -127,6 +127,7 @@ export class HardHat extends ex.Actor {
   async behavior() {
 
   
+    console.log('behaviour running...')
     if (this.hitWithPaint) {
       return; // Exit the function early
     }
@@ -158,6 +159,9 @@ export class HardHat extends ex.Actor {
   }
 
   async shoot() {
+    console.log('shoot running...')
+    if(this.hitWithPaint) return;
+
     await this.actions.delay(2000).toPromise();
 
     this.graphics.use(enterHidingAnim);
@@ -169,23 +173,29 @@ export class HardHat extends ex.Actor {
     this.createHorizontalBullets();
 
     await this.actions.delay(1000).toPromise();
-    this.graphics.use(idleHidingAnim);
+    if(!this.hitWithPaint) 
+    {
+      this.graphics.use(idleHidingAnim);
 
-    // if (this.isKilled()) {
-    //   return;
-    // }
-    this.shoot();
+      // if (this.isKilled()) {
+      //   return;
+      // }
+      this.shoot();
+    }
   }
 
   createHorizontalBullets() {
+
+    if(this.hitWithPaint) return;
+
     const x = this.pos.x;
     const y = this.pos.y + SCALE * -2;
     this.scene.engine.add(
       new HardHatHorizontalBullet(x - 12 * SCALE, y, LEFT)
     );
-    this.scene.engine.add(
-      new HardHatHorizontalBullet(x + 12 * SCALE, y, RIGHT)
-    );
+    // this.scene.engine.add(
+    //   new HardHatHorizontalBullet(x + 12 * SCALE, y, RIGHT)
+    // );
   }
 
   // onPreUpdate(engine, delta) {
@@ -206,13 +216,8 @@ export class HardHat extends ex.Actor {
     // this.graphics.opacity = 0.5;
     this.z = 0;
 
-    
-
     // this.kill();
     // other.deflect(); // if we want to deflect
-    
-
-
     
 
     // this.hitWithPaint = true
