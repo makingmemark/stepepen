@@ -79,7 +79,9 @@ export class Room extends ex.Actor {
       }
 
       if (obj.type === Objs.HARD_HAT) {
-        const hardHard = new HardHat(x, y);
+        const id = obj.id;
+        console.log('load HardHat id:', id)
+        const hardHard = new HardHat(x, y, id);
         engine.add(hardHard);
       }
 

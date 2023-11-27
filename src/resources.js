@@ -4,6 +4,9 @@ let punkImage = 'punk9007-all-sheet.png';
 // let punkImage = 'punk9255-all-sheet.png';
 
 const Images = {
+  "9007": new ex.ImageSource("/sprites/1327/punk9007-all-sheet.png"),
+  "9255": new ex.ImageSource("/sprites/1327/punk9255-all-sheet.png"),
+  // hardHatSheetImage: new ex.ImageSource("/sprites/1327/punk9255-all-sheet.png"),
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-drew-blue-sheet.png"),
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-marka.png"),
   heroSheetImage: new ex.ImageSource("/sprites/bunya/stepepen-bored.png"),
@@ -21,7 +24,8 @@ const Images = {
 
   shotmanSheetImage: new ex.ImageSource("/sprites/new-shotman-sheet.png"),
   // hardHatSheetImage: new ex.ImageSource("/sprites/hardhat-sheet.png"),
-  hardHatSheetImage: new ex.ImageSource("/sprites/1327/" + punkImage),
+  // hardHatSheetImage: new ex.ImageSource("/sprites/1327/" + punkImage),
+  
   cryptoadSheetImage: new ex.ImageSource("/sprites/1327/cryptoad342-all-sprite.png"),
   pipiSheetImage: new ex.ImageSource("/sprites/pipi-sheet.png"),
   pipiSheetImageNew: new ex.ImageSource("/sprites/bunya/enemies.png"),

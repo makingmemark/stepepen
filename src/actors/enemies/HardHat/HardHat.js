@@ -14,92 +14,93 @@ import { HardHatHorizontalBullet } from "./HardHatHorizontalBullet.js";
 //   },
 // });
 
-const spriteSheet = ex.SpriteSheet.fromImageSource({
-  image: Images.hardHatSheetImage,
-  grid: {
-    columns: 4,
-    rows: 3,
-    spriteWidth: 26,
-    spriteHeight: 28,
-  },
-});
 
-const enterHidingAnim = ex.Animation.fromSpriteSheet(
-  spriteSheet,
-  [0,1,2,3],
-  200
-);
-enterHidingAnim.strategy = ex.AnimationStrategy.Freeze;
-
-// const paintAnim = ex.Animation.fromSpriteSheet(
-//   spriteSheet,
-//   [12,13,14,15],
-//   200
-// );
-// paintAnim.strategy = ex.AnimationStrategy.Freeze;
-
-const idleHidingAnim = ex.Animation.fromSpriteSheet(spriteSheet, [0], 200);
-idleHidingAnim.strategy = ex.AnimationStrategy.Freeze;
-
-const paintAnim = ex.Animation.fromSpriteSheet(spriteSheet, [8,9,10,11], 50);
-paintAnim.strategy = ex.AnimationStrategy.Freeze;
-
-const paintIdleAnim = ex.Animation.fromSpriteSheet(spriteSheet, [7], 200);
-paintIdleAnim.strategy = ex.AnimationStrategy.Freeze;
-
-const exitHidingAnim = ex.Animation.fromSpriteSheet(
-  spriteSheet,
-  // [0, 1, 2],
-  [0],
-  200
-);
-// exitHidingAnim.  strategy = ex.AnimationStrategy.Freeze;
-
-const standingAnim = ex.Animation.fromSpriteSheet(spriteSheet, [3], 200);
-// const standingAnimPain = ex.Animation.fromSpriteSheet(spriteSheet, [7], 200);
-// const walkingAnim = ex.Animation.fromSpriteSheet(spriteSheet, [3, 4], 200);
-// const walkingAnimPain = ex.Animation.fromSpriteSheet(spriteSheet, [8, 9], 200);
 
 // const collisionBox = ex.Shape.Box(
-//   14,
-//   14,
+//   24,
+//   24,
 //   ANCHOR_CENTER,
-//   new ex.Vector(0, 8) //pixels
+//   new ex.Vector(0, 0) //pixels
 // );
 
-const collisionBox = ex.Shape.Box(
-  24,
-  24,
-  ANCHOR_CENTER,
-  new ex.Vector(0, 0) //pixels
-);
 
 export class HardHat extends ex.Actor {
-  constructor(x, y) {
+  constructor(x, y, id) {
     super({
       x: x,
       y: y,
+      id: id,
       width: 24,
       height: 24,
-      collider: collisionBox,
+      collider: ex.Shape.Box(
+        24,
+        24,
+        ANCHOR_CENTER,
+        new ex.Vector(0, 0) //pixels
+      ),
       scale: new ex.Vector(2, 2),
       color: ex.Color.Green,
       collisionType: ex.CollisionType.Fixed,
     });
 
+    // TODO: clean these up
+    // let idleHidingAnim, enterHidingAnim, exitHidingAnim, spriteSheet, paintAnim, paintIdleAnim, standingAnim = null;
+
+    this.id = id; // Assuming id is either "9007" or "9255"
+    this.imageToLoad = Images[this.id]; // Use bracket notation to access the image
+
+    if (!this.imageToLoad) {
+      console.error("Invalid ID or Image not found for ID:", this.id);
+      return;
+    } else console.log('imageToload', this.imageToLoad)
+
     this.hitWithPaint = false;
     this.damagesHeroWithNumber = 4;
 
-    // paintAnim.events.on('end', () => {
-    //   // this.paintAnimPlayed = true;
-    //   console.log('paintAnim finished');
-    // });
+    this.spriteSheet = ex.SpriteSheet.fromImageSource({
+      image:  this.imageToLoad,
+      grid: {
+        columns: 4,
+        rows: 3,
+        spriteWidth: 26,
+        spriteHeight: 28,
+      },
+    });
 
-    this.graphics.use(idleHidingAnim);
+    this.idleHidingAnim = ex.Animation.fromSpriteSheet(this.spriteSheet, [0], 200);
+    this.idleHidingAnim.strategy = ex.AnimationStrategy.Freeze;
+
+    this.paintAnim = ex.Animation.fromSpriteSheet(this.spriteSheet, [8,9,10,11], 50);
+    this.paintAnim.strategy = ex.AnimationStrategy.Freeze;
+
+    this.paintIdleAnim = ex.Animation.fromSpriteSheet(this.spriteSheet, [7], 200);
+    this.paintIdleAnim.strategy = ex.AnimationStrategy.Freeze;
+
+    this.standingAnim = ex.Animation.fromSpriteSheet(this.spriteSheet, [3], 200);
+
+    this.exitHidingAnim = ex.Animation.fromSpriteSheet(
+      this.spriteSheet,
+      // [0, 1, 2],
+      [0],
+      200
+    );
+
+    this.enterHidingAnim = ex.Animation.fromSpriteSheet(
+      this.spriteSheet,
+      [0,1,2,3],
+      200
+    );
+    this.enterHidingAnim.strategy = ex.AnimationStrategy.Freeze;
+    
+
+    this.graphics.use(this.idleHidingAnim);
 
     this.on("initialize", () => {
 
+      console.log('iniitalizing hardhat, id:', this.id)
+
       if(!this.hitWithPaint) this.shoot(); // ah if i have this on, the handleCollisionWithMegaManBullet doesn't seem to work the same way
+      
       // must be to do with events etc
 
       // void this.behavior();
@@ -137,12 +138,12 @@ export class HardHat extends ex.Actor {
     }
 
 
-    this.graphics.use(enterHidingAnim);
+    this.graphics.use(this.enterHidingAnim);
     // this.graphics.use(exitHidingAnim);
 
     await this.actions.delay(2000).toPromise();
 
-    this.graphics.use(exitHidingAnim);
+    this.graphics.use(this.exitHidingAnim);
 
     // // exitHidingAnim.goToFrame(0);
     // // enterHidingAnim.goToFrame(0);
@@ -171,7 +172,7 @@ export class HardHat extends ex.Actor {
     if (this.hitWithPaint) {
       return;
     }
-    this.graphics.use(enterHidingAnim);
+    this.graphics.use(this.enterHidingAnim);
     await this.actions.delay(800).toPromise();
     if (this.hitWithPaint) {
       return;
@@ -182,7 +183,7 @@ export class HardHat extends ex.Actor {
     await this.actions.delay(1000).toPromise();
     if(!this.hitWithPaint) 
     {
-      this.graphics.use(idleHidingAnim);
+      this.graphics.use(this.idleHidingAnim);
 
       // if (this.isKilled()) {
       //   return;
@@ -219,11 +220,11 @@ export class HardHat extends ex.Actor {
     this.hitWithPaint = true
     this.body.collisionType = ex.CollisionType.PreventCollision;
     // await this.actions.delay(100).toPromise(); // wait one second so bullet gets to  him
-    this.graphics.use(paintAnim); //  show anim
+    this.graphics.use(this.paintAnim); //  show anim
     
 
     await this.actions.delay(1000).toPromise();
-    this.graphics.use(paintIdleAnim);
+    this.graphics.use(this.paintIdleAnim);
     // this.graphics.opacity = 0.5;
     // this.z = 0;
     
