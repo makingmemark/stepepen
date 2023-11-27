@@ -5,6 +5,7 @@ import { Portal } from "./Portal.js";
 import { Platform } from "./Platform.js";
 import { Ladder } from "./Ladder.js";
 import { HardHat } from "./enemies/HardHat/HardHat.js";
+import { Cryptoad } from "./enemies/Cryptoad/Cryptoad.js";
 import { Pipi } from "./enemies/Pipi/Pipi.js";
 import { NewShotman } from "./enemies/NewShotman/NewShotman.js";
 import { RoomChange } from "./RoomChange.js";
@@ -80,6 +81,11 @@ export class Room extends ex.Actor {
       if (obj.type === Objs.HARD_HAT) {
         const hardHard = new HardHat(x, y);
         engine.add(hardHard);
+      }
+
+      if (obj.type === Objs.CRYPTOAD) {
+        const cryptoad = new Cryptoad(x, y);
+        engine.add(cryptoad);
       }
 
       if (obj.type === Objs.PIPI) {

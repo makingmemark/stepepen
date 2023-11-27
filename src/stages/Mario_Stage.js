@@ -155,6 +155,11 @@ const room1 = new Room({
       x:45, // was 53
       y: 11.15,
     },
+    {
+      type: Objs.CRYPTOAD,
+      x:20, // was 53
+      y: 11.25,
+    },
     // {
     //   type: Objs.NEW_SHOTMAN,
     //   x:63, // was 53
