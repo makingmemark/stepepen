@@ -19,7 +19,7 @@ export const ANCHOR_CENTER = new ex.Vector(0.5, 0.5);
 
 export const SCALE_2x = new ex.Vector(2, 2);
 
-export const START_X = 14; // 14
+export const START_X = 42; // 14: start, 42: punk
 export const START_Y = 2;
 
 export const CUSTOM_EVENT_MM_HP_UPDATE = "CUSTOM_EVENT_MM_HP_UPDATE";

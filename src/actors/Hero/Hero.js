@@ -353,9 +353,9 @@ export class Hero extends ex.Actor {
       if (this.directionQueue.direction) {
         const dir = this.directionQueue.direction;
 
-        if (keyboard.isHeld(keys.X)) {
-          console.log('X held')
-        }
+        // if (keyboard.isHeld(keys.X)) {
+        //   console.log('X held')
+        // }
         if (this.onGround) {
           if (this.preStepMsLeft > 0) {
             this.preStepMsLeft -= delta;
@@ -379,7 +379,7 @@ export class Hero extends ex.Actor {
         // Apply friction when no direction is pressed
         
         this.vel.x *= FRICTION;
-        console.log(this.vel.x)
+        // console.log(this.vel.x)
         if(this.vel.x > -10 && this.vel.x < 10) this.vel.x = 0;
       }
       

@@ -1,5 +1,8 @@
 import * as ex from "excalibur";
 
+// let punkImage = 'punk9007-all-sheet.png';
+let punkImage = 'punk9255-all-sheet.png';
+
 const Images = {
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-drew-blue-sheet.png"),
   // heroSheetImage: new ex.ImageSource("/sprites/mm-48-marka.png"),
@@ -18,7 +21,7 @@ const Images = {
 
   shotmanSheetImage: new ex.ImageSource("/sprites/new-shotman-sheet.png"),
   // hardHatSheetImage: new ex.ImageSource("/sprites/hardhat-sheet.png"),
-  hardHatSheetImage: new ex.ImageSource("/sprites/1327/punk9007-all-sheet.png"),
+  hardHatSheetImage: new ex.ImageSource("/sprites/1327/" + punkImage),
   pipiSheetImage: new ex.ImageSource("/sprites/pipi-sheet.png"),
   pipiSheetImageNew: new ex.ImageSource("/sprites/bunya/enemies.png"),
   explosionSpriteSheet: new ex.ImageSource("/sprites/explosion-sheet.png"),
