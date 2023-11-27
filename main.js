@@ -15,6 +15,7 @@ import { HeroHp } from "./src/classes/HeroHp.js";
 // import { DrewMan_Stage } from "./src/stages/DrewMan_Stage.js";
 import { Mario_Stage } from "./src/stages/Mario_Stage.js";
 import { loader } from "./src/resources.js";
+import { Soundtracks } from "./src/resources.js";
 
 async function main() {
   const game = new ex.Engine({
@@ -88,6 +89,8 @@ async function main() {
 
   await game.start(loader); // will load and then immediately start of suppressPlayButton is true
 
+  Soundtracks.LEVEL1.loop = true;
+  Soundtracks.LEVEL1.play()
   mmHp.init();
   mmHp.hero = hero;
 }

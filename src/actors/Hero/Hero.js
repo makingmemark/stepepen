@@ -165,7 +165,7 @@ export class Hero extends ex.Actor {
       // if(evt.other.isPlatform && evt.side === ex.Side.Bottom)  this.onPlatform = true;
 
       if (!this.onGround) {
-        Sounds.LANDING.play();
+        // Sounds.LANDING.play();
       }
       this.onGround = true;
     }
@@ -399,6 +399,7 @@ export class Hero extends ex.Actor {
       //Jump handler (while on ground)
       const canJump = this.onGround;
       if (canJump && engine.input.keyboard.wasPressed(JUMP_KEY)) {
+        Sounds.JUMP.play()
         this.vel.y = JUMP_VELOCITY;
       }
       // Variable jump - shut off negative velocity when releasing the key

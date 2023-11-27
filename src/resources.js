@@ -35,14 +35,20 @@ const Sounds = {
   LANDING: new ex.Sound("/sounds/mm-floor-landing.wav"),
   // SHOOT: new ex.Sound("/sounds/mm-bullet.wav"),
   SHOOT: new ex.Sound("/sounds/Fire.wav"),
-  PAIN: new ex.Sound("/sounds/mm-pain.wav"),
+  // PAIN: new ex.Sound("/sounds/mm-pain.wav"),
+  PAIN: new ex.Sound("/sounds/Die.wav"),
+  JUMP: new ex.Sound("/sounds/Jump.wav")
 };
+
+const Soundtracks = {
+  LEVEL1: new ex.Sound("/sounds/Underwater-Theme.wav")
+}
 
 const loader = new ex.Loader();
 loader.suppressPlayButton = true; // hides play button
-const allResources = { ...Images, ...Sounds };
+const allResources = { ...Images, ...Sounds, ...Soundtracks };
 for (const res in allResources) {
   loader.addResource(allResources[res]);
 }
 
-export { loader, Images, Sounds };
+export { loader, Images, Sounds, Soundtracks };
