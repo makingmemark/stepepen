@@ -12,46 +12,38 @@ const room1 = new Room({
   
   platforms: [
 
-    // {
+    {
       
-    //   x: 6,
-    //   y: 3,
-    //   widthCells: 3, // 82,
-    //   heightCells: 1,
-    //   dir: 1,
-    //   distance: 100,
-    //   vertical : false
-    // },
-    // {
-       
-    //   x: 3,
-    //   y: 6,
-    //   widthCells: 3, // 82,
-    //   heightCells: 1,
-    //   dir: 1,
-    //   distance: 100,
-    //   vertical : false
-    // },
-     
-    // {
-       
-    //   x: 0,
-    //   y: 9,
-    //   widthCells: 3, // 82,
-    //   heightCells: 1,
-    //   dir: 1,
-    //   distance: 100,
-    //   vertical : false
-    // },
-    // {
-    //   x: 16,
-    //   y: 3,
-    //   widthCells: 1, // 82,
-    //   heightCells: 1,
-    //   dir: 1,
-    //   distance: 100,
-    //   vertical : true
-    // }
+      x: 164,
+      y: 9,
+      widthCells: 2, // 82,
+      heightCells: 1,
+      dir: 1,
+      distance: 100,
+      vertical : false
+    },
+    {
+      
+      x: 172,
+      y: 6,
+      widthCells: 2, // 82,
+      heightCells: 1,
+      dir: -1,
+      distance: 100,
+      vertical : false
+    },
+
+    {
+      
+      x: 178,
+      y: 6,
+      widthCells: 1, // 82,
+      heightCells: 1,
+      dir: -1,
+      distance: 100,
+      vertical : true
+    }
+   
    
   ],
   
@@ -346,7 +338,7 @@ const room1 = new Room({
     {
         x: 150,
         y: 12,
-        widthCells: 14, // 82,
+        widthCells: 13, // 82,
         heightCells: 1
     },
     // batz pipe 1 of 3
@@ -368,41 +360,43 @@ const room1 = new Room({
         widthCells: 2, // 82,
         heightCells: 2
     },
+    // end 3 batz pipes
     {
         x: 162,
         y: 10,
         widthCells: 1, // 82,
         heightCells: 2
     },
-    {
-        x: 166,
-        y: 10,
-        widthCells: 1, // 82,
-        heightCells:  1 
-    },
 
-    {
-        x: 169,
-        y: 8,
-        widthCells: 1, // 82,
-        heightCells:  1 
-    },
+    // {
+    //     x: 166,
+    //     y: 10,
+    //     widthCells: 1, // 82,
+    //     heightCells:  1 
+    // },
 
-    {
-        x: 172,
-        y: 6,
-        widthCells: 1, // 82,
-        heightCells:  1 
-    },
+    // {
+    //     x: 169,
+    //     y: 8,
+    //     widthCells: 1, // 82,
+    //     heightCells:  1 
+    // },
 
+    // {
+    //     x: 172,
+    //     y: 6,
+    //     widthCells: 1, // 82,
+    //     heightCells:  1 
+    // },
+
+    // {
+    //     x: 175,
+    //     y: 4,
+    //     widthCells: 2, // 82,
+    //     heightCells:  1 
+    // },
     {
-        x: 175,
-        y: 4,
-        widthCells: 2, // 82,
-        heightCells:  1 
-    },
-    {
-        x: 179,
+        x: 183,
         y: 12,
         widthCells: 10, // 82,
         heightCells:  1 

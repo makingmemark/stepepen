@@ -18,7 +18,7 @@ const Images = {
 
   // map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1-marka-full-c.png"),
   // map1Image: new ex.ImageSource("/maps/DrewMan_stage/map-mario.png"),
-  map1Image: new ex.ImageSource("/maps/DrewMan_stage/map-mario-2.png"),
+  map1Image: new ex.ImageSource("/maps/DrewMan_stage/map-mario-2-marka.png"),
   
   // map1Image: new ex.ImageSource("/maps/DrewMan_stage/map1.png"),
   map2Image: new ex.ImageSource("/maps/DrewMan_stage/map2-full-c.png"), 
