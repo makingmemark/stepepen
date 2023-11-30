@@ -117,83 +117,6 @@ export class Hero extends ex.Actor {
     this.addTag(TAG_HERO);
     // new DrawShapeHelper(this); // this shows shape
 
-
-    /*
-    let that = this;
-    this.gamepad = _engine.input.gamepads;
-    // console.log(this.gamepad.getAxes())
-
-    this.gamepad.on('connect', (ce) => {
-
-      console.log('Gamepad connected', ce)
-      this.gamepadActive = true;
-
-      //https://excaliburjs.com/docs/api/edge/enums/Provides_support_for_mice__keyboards__and_controllers_.Axes.html
-      ce.gamepad.on('axis', (ae) => {
-        console.log(ae.axis, ae.value)
-
-        if(ae.axis === 0 && ae.value > 0.5) console.log('right')
-        if(ae.axis === 0 && ae.value < -0.5) console.log('left')
-
-        if(ae.axis === 1 && ae.value > 0.5) console.log('down')
-        if(ae.axis === 1 && ae.value < -0.5) console.log('up')
-
-        // if(ae.axis === 0 && ae.value < 0) console.log('left')
-        // if(ae.axis === _engine.Input.Axis.RightStickX) console.log('ex.Input.Axis.RightStickX')
-        // if(ae.axis === _engine.Input.Axis.LeftStickY) console.log('ex.Input.Axis.LeftStickY')
-        // if(ae.axis === _engine.Input.Axis.RightStickY) console.log('ex.Input.Axis.RightStickY')
-      })
-
-
-    });
-
-    this.gamepad.at(0).on('button', function (ev) {
-
-      // console.log(that)
-      // ex.Logger.getInstance().info(ev.button, ev.value)
-      // console.log(ex.Input.Buttons)
-
-      // if (that.gamepad.at(0).isButtonPressed(ex.Input.Buttons.Face2)) {
-      //   ex.Logger.getInstance().info('Controller A button pressed')
-      // }
-      // if (that.gamepad.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
-      //   ex.Logger.getInstance().info('Controller B button pressed')
-      // }
-     
-    })
-
-    */
-
-    // this.gamepad.at(0).on('axis', function(ev) {
-    //   ex.Logger.getInstance().info(ev.axis, ev.value);
-    // });
-
-    
-
-    //engine.input.keyboard.wasPressed(JUMP_KEY)
-
-    /*
-    this.gamepad.on('connect', (ce) => {
-      // const newPlayer = CreateNewPlayer() // pseudo-code for new player logic on gamepad connection
-      console.log('Gamepad connected', ce)
-      ce.gamepad.on('button', (be) => {
-        // if (be.button === ex.Input.Buttons.Face1) {
-        //   newPlayer.jump()
-        // }
-        console.log('be.button', be.button ) // 1 = a = jump, 0 = b = run
-      })
-    
-      ce.gamepad.on('axis', (ae) => {
-        // console.log('ae.axis & ae.value', ae.axisa, ae.value )
-       
-        // if (ae.axis === ex.Input.Axis.LeftStickX && ae.value > 0.5) {
-        //   newPlayer.moveRight()
-        // }
-      })
-    });
-    */
-
-
   }
 
   onCollisionStart(evt) {
@@ -344,14 +267,6 @@ export class Hero extends ex.Actor {
         this.directionQueue.remove(group.dir);
       }
     });
-
-
-    // need to check if d-pad directions are held down
-
-   
-      
-
-    // console.log(this.pos.y)
 
     if(this.pos.y > DEAD_Y) {
       console.log('Below Ground');
@@ -578,20 +493,11 @@ export class Hero extends ex.Actor {
       this.shootBullet(engine);
     } 
 
-    
-    // if(this.buttonBPressed && this.lastShotMsLeft < 1) {
-    //   this.lastShotMsLeft = 1000; // this works - it means if the button is held down, he shoots repeatedly every 1 sec
-    //   this.shootBullet(engine);
-    // }
-
     if(this.buttonBPressed && this.bulletsFiredOnBPressed < 1)  {
       // this.lastTimeBPressed = engine.clock.now();
       this.bulletsFiredOnBPressed++;
       this.shootBullet(engine);
     }
-
-    
-
 
   }
 
@@ -607,6 +513,7 @@ export class Hero extends ex.Actor {
 
   onPostUpdatePhysics(engine, delta) {
 
+    // TODO: not sure if i need this here, could potentially just do it in onPreUpdatePhysics if not isButtonePressed
     if(this.game.gamepadActive) {
       if (engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face2)) {
         // ex.Logger.getInstance().info('Controller A button pressed')
@@ -639,8 +546,6 @@ export class Hero extends ex.Actor {
     } else {
       engine.emit(CUSTOM_EVENT_MM_DAMAGED, num);
     }
-
-    
 
     this.setLadderLocked(false); //Fall off ladder if on one
     this.painState = {

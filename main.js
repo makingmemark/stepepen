@@ -56,9 +56,8 @@ async function main() {
   game.on("initialize", () => {
     game.currentScene.camera.addStrategy(cameraStrategy);
     game.currentScene.world.queryManager.createQuery([TAG_HERO]);
-    //console.log(game.input.gamepads)
-
-    // this.gamepad = engine.input.gamepads;
+  
+    // firing this in here and not in Hero now
     game.input.gamepads.on('connect', (ce) => {
       console.log('Gamepad connected', ce)
       game.gamepadActive = true;
