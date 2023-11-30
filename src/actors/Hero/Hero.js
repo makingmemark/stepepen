@@ -90,7 +90,8 @@ export class Hero extends ex.Actor {
     this.lastShotMsLeft = 0;
 
     
-    this.gamepadActive = false;
+    this.game = null;
+    // this.gamepadActive = false;
     this.buttonAPressed = 0;
     this.buttonBPressed = 0;
     // this.lastTimeBPressed = 0;
@@ -108,17 +109,21 @@ export class Hero extends ex.Actor {
   }
 
   onInitialize(_engine) {
+
+    console.log('onInitialize Hero')
+    console.log(_engine)
+    this.game = _engine;
+
     this.addTag(TAG_HERO);
     // new DrawShapeHelper(this); // this shows shape
 
-    
+
+    /*
     let that = this;
     this.gamepad = _engine.input.gamepads;
     // console.log(this.gamepad.getAxes())
 
     this.gamepad.on('connect', (ce) => {
-
-      
 
       console.log('Gamepad connected', ce)
       this.gamepadActive = true;
@@ -156,6 +161,8 @@ export class Hero extends ex.Actor {
       // }
      
     })
+
+    */
 
     // this.gamepad.at(0).on('axis', function(ev) {
     //   ex.Logger.getInstance().info(ev.axis, ev.value);
@@ -300,15 +307,25 @@ export class Hero extends ex.Actor {
     const keys = ex.Input.Keys;
     const JUMP_KEY = keys.Z;
 
-    if(this.gamepad.at(0).isButtonPressed(ex.Input.Buttons.Face2)) {
-      console.log('A pressed');
-      // console.log(this.gamepad.at(0).getButton(ex.Input.Buttons.Face2));
-      this.buttonAPressed = true;
-    }
+    if(this.game.gamepadActive) {
+    
+      const axisLeftRightValue =  engine.input.gamepads.at(0).getAxes(0);
+      if (axisLeftRightValue > 0.5) this.directionQueue.add(RIGHT); 
+      else this.directionQueue.remove(RIGHT); 
 
-    if(this.gamepad.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
-      console.log('B pressed');
-      this.buttonBPressed = true;
+      if (axisLeftRightValue < -0.5) this.directionQueue.add(LEFT); 
+      else this.directionQueue.remove(LEFT); 
+    
+      if(engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face2)) {
+        console.log('A pressed');
+        // console.log(this.gamepad.at(0).getButton(ex.Input.Buttons.Face2));
+        this.buttonAPressed = true;
+      }
+
+      if(engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
+        console.log('B pressed');
+        this.buttonBPressed = true;
+      }
     }
 
     // this.gamepad.at(0).on('axis', function(ev) {
@@ -331,14 +348,7 @@ export class Hero extends ex.Actor {
 
     // need to check if d-pad directions are held down
 
-    if(this.gamepadActive) {
-      const axisLeftRightValue =  engine.input.gamepads.at(0).getAxes(0);
-      if (axisLeftRightValue > 0.5) this.directionQueue.add(RIGHT); 
-      else this.directionQueue.remove(RIGHT); 
-
-      if (axisLeftRightValue < -0.5) this.directionQueue.add(LEFT); 
-      else this.directionQueue.remove(LEFT); 
-    }
+   
       
 
     // console.log(this.pos.y)
@@ -526,7 +536,7 @@ export class Hero extends ex.Actor {
         this.vel.y = 0;
       }
       // only run this if gamePadActive otherwise it means you can't jump with the keyboard key
-      if (this.gamepadActive && !this.buttonAPressed && this.timesRanOnAPressed < 3 && this.vel.y < 0) {
+      if (this.game.gamepadActive && !this.buttonAPressed && this.timesRanOnAPressed < 3 && this.vel.y < 0) {
         this.vel.y = 0;
       }
     }
@@ -597,20 +607,22 @@ export class Hero extends ex.Actor {
 
   onPostUpdatePhysics(engine, delta) {
 
-    if (this.gamepad.at(0).isButtonPressed(ex.Input.Buttons.Face2)) {
-      // ex.Logger.getInstance().info('Controller A button pressed')
-    } else {
-      // ex.Logger.getInstance().info('Controller A button NOT pressed')
-      this.buttonAPressed = false;
-      this.timesRanOnAPressed = 0;
-    }
+    if(this.game.gamepadActive) {
+      if (engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face2)) {
+        // ex.Logger.getInstance().info('Controller A button pressed')
+      } else {
+        // ex.Logger.getInstance().info('Controller A button NOT pressed')
+        this.buttonAPressed = false;
+        this.timesRanOnAPressed = 0;
+      }
 
-    if (this.gamepad.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
-      //ex.Logger.getInstance().info('Controller B button pressed')
-    } else {
-      // ex.Logger.getInstance().info('Controller B button NOT pressed')
-      this.buttonBPressed = false;
-      this.bulletsFiredOnBPressed = 0;
+      if (engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
+        //ex.Logger.getInstance().info('Controller B button pressed')
+      } else {
+        // ex.Logger.getInstance().info('Controller B button NOT pressed')
+        this.buttonBPressed = false;
+        this.bulletsFiredOnBPressed = 0;
+      }
     }
   }
 

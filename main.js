@@ -27,6 +27,8 @@ async function main() {
     backgroundColor: ex.Color.fromHex('#000000')
   });
 
+  game.gamepadActive = false;
+
   // game.showDebug(true);
 
   // Set global gravity
@@ -54,6 +56,14 @@ async function main() {
   game.on("initialize", () => {
     game.currentScene.camera.addStrategy(cameraStrategy);
     game.currentScene.world.queryManager.createQuery([TAG_HERO]);
+    //console.log(game.input.gamepads)
+
+    // this.gamepad = engine.input.gamepads;
+    game.input.gamepads.on('connect', (ce) => {
+      console.log('Gamepad connected', ce)
+      game.gamepadActive = true;
+    });
+
   });
 
   game.on(CUSTOM_EVENT_CAMERA_Y_CHANGE, async ({ yPos, direction, room }) => {
@@ -87,59 +97,6 @@ async function main() {
     }
   });
 
-
-  /*
-
-  game.input.gamepads.enabled = true; // true or false and it still triggers events
-
-  game.input.gamepads.on('connect', (ce) => {
-    // const newPlayer = CreateNewPlayer() // pseudo-code for new player logic on gamepad connection
-    console.log('Gamepad connected', ce)
-    ce.gamepad.on('button', (be) => {
-      // if (be.button === ex.Input.Buttons.Face1) {
-      //   newPlayer.jump()
-      // }
-      console.log('be.button', be.button ) // 1 = a, 0 = b
-    })
-  
-    ce.gamepad.on('axis', (ae) => {
-      // console.log('ae.axis & ae.value', ae.axisa, ae.value )
-     
-      // if (ae.axis === ex.Input.Axis.LeftStickX && ae.value > 0.5) {
-      //   newPlayer.moveRight()
-      // }
-    })
-  })
-
-  game.on('updated', async (event ) => {
-    if (game.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
-      ex.Logger.getInstance().info('Controller A button pressed')
-    }
-    // query individual button
-    if (game.input.gamepads.at(0).getButton(ex.Input.Buttons.DpadLeft) > 0.2) {
-      ex.Logger.getInstance().info('Controller D-pad left value is > 0.2')
-    }
-  });
-
-  */
-
-  
-  // // query gamepad on update
-  // game.on('update', function(ev) {
-  //   // access any gamepad by index
-  //   const axisValue =  = game.input.gamepads.at(0).getAxes(ex.Input.Axes.LeftStickX));
-  //   if (axisValue > 0.5) {
-  //     ex.Logger.getInstance().info('Move right', axisValue);
-  //   }
-  // });
-  // subscribe to axis events
-  /*
-  game.input.gamepads.at(0).on('axis', function(ev) {
-    console.log('gamepad triggered')
-    // ex.Logger.getInstance().info(ev.axis, ev.value);
-  });
-  */
-
   await game.start(loader); // will load and then immediately start of suppressPlayButton is true
 
   const myLabel = new ex.Label({
@@ -160,8 +117,6 @@ async function main() {
   Soundtracks.LEVEL1.play()
   mmHp.init();
   mmHp.hero = hero;
-
-
 }
 
 // Call the main function to start the game
