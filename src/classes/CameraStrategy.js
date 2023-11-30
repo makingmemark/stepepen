@@ -36,9 +36,11 @@ export class MM_CameraStrategy {
     if (cameraX < this.leftLimit) {
       cameraX = this.leftLimit;
     }
-    if (cameraX > this.rightLimit) {
-      cameraX = this.rightLimit;
-    }
+
+    // todo: turn back on limits
+    // if (cameraX > this.rightLimit) {
+    //   cameraX = this.rightLimit;
+    // }
 
     // Limits
     return new ex.Vector(cameraX, this.y);

@@ -164,7 +164,7 @@ export class HardHat extends ex.Actor {
   }
 
   async shoot() {
-    console.log('shoot running...')
+    // console.log('shoot running...')
     if(this.hitWithPaint) return;
 
     await this.actions.delay(2000).toPromise();

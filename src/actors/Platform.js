@@ -9,7 +9,7 @@ import {
 const blockSprite = Images.blockImage.toSprite();
 
 export class Platform extends ex.Actor {
-  constructor(x, y, cols, rows, dir) {
+  constructor(x, y, cols, rows, dir, distance, vertical) {
     const SIZEW = 20;
     const SIZEH = 16;
 
@@ -26,6 +26,8 @@ export class Platform extends ex.Actor {
     });
 
     this.dir = dir
+    this.distance = distance
+    this.vertical = vertical
 
     // const blockSprite = Images.blockImage.toSprite();
 
@@ -49,14 +51,22 @@ export class Platform extends ex.Actor {
   onInitialize(engine) {
     // new DrawShapeHelper(this);
 
-    this.actions.delay(1000)
-      .repeatForever(ctx => ctx
-        .moveBy(400 * this.dir, 0, 100)
-        .moveBy(-400 * this.dir, 0, 100));
+    if(this.distance === 0) return;
+    
+    if(this.vertical) {
 
-        // this.actions.delay(1000)
-        // .repeatForever(ctx => ctx
-        //   .moveBy(0, 100 * this.dir, 150)
-        //   .moveBy(0, -100 * this.dir, 150));
+       this.actions.delay(1000)
+        .repeatForever(ctx => ctx
+          .moveBy(0, this.distance * this.dir, 100)
+          .moveBy(0, -this.distance * this.dir, 100));
+
+    } else {
+      this.actions.delay(1000)
+        .repeatForever(ctx => ctx
+          .moveBy(this.distance * this.dir, 0, 100)
+          .moveBy(-this.distance * this.dir, 0, 100));
+    }
+
+       
   }
 }

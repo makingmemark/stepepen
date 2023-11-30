@@ -31,13 +31,13 @@ export class Room extends ex.Actor {
 
   onInitialize(engine) {
 
-    // new DrawShapeHelper(this);
+    new DrawShapeHelper(this);
 
     this.platforms.forEach((f) => {
       const x = this.pos.x + f.x * SCALED_CELL;
       const y = this.pos.y + f.y * SCALED_CELL;
 
-      const platform = new Platform(x, y, f.widthCells, f.heightCells, f.dir);
+      const platform = new Platform(x, y, f.widthCells, f.heightCells, f.dir, f.distance, f.vertical);
       engine.add(platform);
     });
 

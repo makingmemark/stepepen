@@ -73,6 +73,8 @@ export class Hero extends ex.Actor {
     this.onGround = false;
     // this.onPlatform = true;
 
+    this.currentPlatform = null;
+
     // States
     this.painState = null;
     this.climbTopState = null;
@@ -121,6 +123,8 @@ export class Hero extends ex.Actor {
 
   onCollisionStart(evt) {
 
+    // console.log('onCollisionStart, evt:', evt)
+    // console.log('evt.side', evt.side)
     if (evt.other.hasTag(TAG_PORTAL)) {
       alert('BRAVO STEPEPEN!')
     }
@@ -133,14 +137,7 @@ export class Hero extends ex.Actor {
     }
 
 
-    if (evt.other.hasTag(TAG_PLATFORM)) {
-      this.onGround = true;
-      // this.onPlatform = true;
-      // this.platformOverlap = {
-      //   y: evt.other.pos.y + 18, // offset to nudge Hero to be right on the ladder
-      // };
-      // this.setPlatformLocked(true)
-    }
+   
 
     // Know when we overlap the top of a ladder
     if (evt.other.hasTag(TAG_LADDER_DETECT_TOP)) {
@@ -167,7 +164,10 @@ export class Hero extends ex.Actor {
     if (evt.other.hasTag(TAG_PLATFORM)) {
       // this.platformOverlap = null;
       // this.onPlatform = true;
+      console.log('finished colliiding with platform')
+      this.currentPlatform = null;
       this.onGround = false;
+      // this.vel.y = 0;
     }
     if (evt.other.hasTag(TAG_LADDER_DETECT_TOP)) {
       this.isOverlappingLadderTop = false;
@@ -175,11 +175,16 @@ export class Hero extends ex.Actor {
   }
 
   onPostCollision(evt) {
-    if (evt.other.isFloor && evt.side === ex.Side.Bottom) {
-      // || evt.other.isPlatform && evt.side === ex.Side.Bottom
-      // console.log('collided with :',evt.other, evt.side )
+    // console.log(evt)
 
-      // if(evt.other.isPlatform && evt.side === ex.Side.Bottom)  this.onPlatform = true;
+    if (evt.other.isPlatform && evt.side === ex.Side.Bottom) {
+      // console.log('collided with bottom of platform')
+
+      this.currentPlatform = evt.other;
+      this.onGround = true;
+    }
+
+    if (evt.other.isFloor && evt.side === ex.Side.Bottom) {
 
       if (!this.onGround) {
         // Sounds.LANDING.play();
@@ -240,13 +245,13 @@ export class Hero extends ex.Actor {
       else this.directionQueue.remove(LEFT); 
     
       if(engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face2)) {
-        console.log('A pressed');
+        // console.log('A pressed');
         // console.log(this.gamepad.at(0).getButton(ex.Input.Buttons.Face2));
         this.buttonAPressed = true;
       }
 
       if(engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
-        console.log('B pressed');
+        // console.log('B pressed');
         this.buttonBPressed = true;
       }
     }
@@ -273,8 +278,21 @@ export class Hero extends ex.Actor {
       this.takeDamage(MAX_HP)
     }
 
-    //Reset grounding
-    if (this.vel.y !== 0) {
+    if(this.currentPlatform ) {
+      this.pos.x += this.currentPlatform.vel.x * delta / 1000; // todo: why 1000?
+
+      if(this.currentPlatform.vertical) {
+        this.vel.y = this.currentPlatform.vel.y + 1000; // todo: this keeps it in contact but seems hacky af
+      }
+      const platformTop = this.currentPlatform.pos.y - this.currentPlatform.height / 2;
+
+      if (this.currentPlatform.vel.y > 0) {
+        // console.log('plaform moving down')
+      } else if (this.currentPlatform.vel.y < 0) {
+        // console.log('plaform moving up')
+      }
+      this.onGround = true;
+    } else if (this.vel.y !== 0) {
       // if(this.onPlatform) return;
       this.onGround = false;
     }
@@ -440,7 +458,7 @@ export class Hero extends ex.Actor {
       //Jump handler (while on ground)
       const canJump = this.onGround;
 
-      if (canJump && ( engine.input.keyboard.wasPressed(JUMP_KEY) || (this.buttonAPressed && this.timesRanOnAPressed < 3))  ) {
+      if (canJump && ( engine.input.keyboard.wasPressed(JUMP_KEY) || (this.buttonAPressed && this.timesRanOnAPressed < 1))  ) {
         Sounds.JUMP.play()
         this.vel.y = JUMP_VELOCITY;
         this.timesRanOnAPressed++;
@@ -482,6 +500,9 @@ export class Hero extends ex.Actor {
     if (engine.input.keyboard.wasPressed(ex.Input.Keys.Space)) {
       // this.takeDamage(22);
     }
+
+    // console.log(' this.vel.y ',  this.vel.y )
+    
   }
 
   checkForShootInput(engine) {

@@ -13,7 +13,7 @@ import {
 import { Lifebar } from "./src/hud/Lifebar.js";
 import { HeroHp } from "./src/classes/HeroHp.js";
 // import { DrewMan_Stage } from "./src/stages/DrewMan_Stage.js";
-import { Mario_Stage } from "./src/stages/Mario_Stage.js";
+import { Mario_Stage } from "./src/stages/Mario_Stage_2.js";
 import { loader } from "./src/resources.js";
 import { Soundtracks } from "./src/resources.js";
 
@@ -29,7 +29,7 @@ async function main() {
 
   game.gamepadActive = false;
 
-  // game.showDebug(true);
+  // game.showDebug(true); // shows bounding boxes and id's etc
 
   // Set global gravity
   ex.Physics.acc = new ex.Vector(0, 1500);

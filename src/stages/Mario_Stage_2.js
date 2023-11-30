@@ -12,46 +12,46 @@ const room1 = new Room({
   
   platforms: [
 
-    {
+    // {
       
-      x: 6,
-      y: 3,
-      widthCells: 3, // 82,
-      heightCells: 1,
-      dir: 1,
-      distance: 100,
-      vertical : false
-    },
-    {
+    //   x: 6,
+    //   y: 3,
+    //   widthCells: 3, // 82,
+    //   heightCells: 1,
+    //   dir: 1,
+    //   distance: 100,
+    //   vertical : false
+    // },
+    // {
        
-      x: 3,
-      y: 6,
-      widthCells: 3, // 82,
-      heightCells: 1,
-      dir: 1,
-      distance: 100,
-      vertical : false
-    },
+    //   x: 3,
+    //   y: 6,
+    //   widthCells: 3, // 82,
+    //   heightCells: 1,
+    //   dir: 1,
+    //   distance: 100,
+    //   vertical : false
+    // },
      
-    {
+    // {
        
-      x: 0,
-      y: 9,
-      widthCells: 3, // 82,
-      heightCells: 1,
-      dir: 1,
-      distance: 100,
-      vertical : false
-    },
-    {
-      x: 16,
-      y: 3,
-      widthCells: 1, // 82,
-      heightCells: 1,
-      dir: 1,
-      distance: 100,
-      vertical : true
-    }
+    //   x: 0,
+    //   y: 9,
+    //   widthCells: 3, // 82,
+    //   heightCells: 1,
+    //   dir: 1,
+    //   distance: 100,
+    //   vertical : false
+    // },
+    // {
+    //   x: 16,
+    //   y: 3,
+    //   widthCells: 1, // 82,
+    //   heightCells: 1,
+    //   dir: 1,
+    //   distance: 100,
+    //   vertical : true
+    // }
    
   ],
   
@@ -74,92 +74,344 @@ const room1 = new Room({
     {
         x: 6,
         y: 12,
-        widthCells: 17, // 82,
+        widthCells: 16, // 82,
         heightCells: 1,
-    },
-    {
-        x: 21,
-        y: 10,
-        widthCells: 1, // 82,
-        heightCells: 3,
-    },
-    {
-        x: 25,
-        y: 10,
-        widthCells: 1, // 82,
-        heightCells: 3,
-    },
-    {
-        x: 28,
-        y: 8,
-        widthCells: 1, // 82,
-        heightCells: 5,
-    },
-    {
-        x: 31,
-        y: 6,
-        widthCells: 1, // 82,
-        heightCells: 7,
-    },
-    {
-        x: 34,
-        y: 4,
-        widthCells: 2, // 82,
-        heightCells: 9,
     },
 
     {
-        x: 36,
+        x: 6,
         y: 12,
-        widthCells: 12, // 82,
+        widthCells: 16, // 82,
         heightCells: 1,
     },
     {
-        x: 46,
-        y: 10,
-        widthCells: 1, // 82,
-        heightCells: 3,
-    },
-    {
-        x: 46,
-        y: 10,
-        widthCells: 1, // 82,
-        heightCells: 3,
-    },
-    {
-        x: 50,
-        y: 10,
-        widthCells: 1, // 82,
+        x: 24,
+        y: 12,
+        widthCells: 4, // 82,
         heightCells: 1,
     },
+
     {
-        x: 53,
-        y: 8,
-        widthCells: 1, // 82,
-        heightCells: 1,
-    },
-    {
-        x: 56,
-        y: 6,
-        widthCells: 1, // 82,
-        heightCells: 1,
-    },
-    {
-        x: 59,
-        y: 4,
+        x: 30,
+        y: 12,
         widthCells: 2, // 82,
         heightCells: 1,
     },
+
+    {
+        x: 34,
+        y: 12,
+        widthCells: 1, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 37,
+        y: 12,
+        widthCells: 4, // 82,
+        heightCells: 1,
+    },
+
+
+    {
+        x: 44,
+        y: 12,
+        widthCells: 3, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 44,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 2,
+    },
+
+    {
+        x: 49,
+        y: 12,
+        widthCells: 4, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 55,
+        y: 11,
+        widthCells: 1, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 58,
+        y: 9,
+        widthCells: 1, // 82,
+        heightCells: 1,
+    },
+
+
+    {
+        x: 61,
+        y: 11,
+        widthCells: 1, // 82,
+        heightCells: 1,
+    },
+
     {
         x: 63,
-        y: 12,
-        widthCells: 7, // 82,
+        y: 9,
+        widthCells: 1, // 82,
         heightCells: 1,
-    }, 
+    },
+
+    {
+        x: 66,
+        y: 11,
+        widthCells: 1, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 67,
+        y: 7,
+        widthCells: 2, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 70,
+        y: 12,
+        widthCells: 4, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 71,
+        y: 9,
+        widthCells: 1, // 82,
+        heightCells: 3,
+    },
+
+    {
+        x: 76,
+        y: 12,
+        widthCells: 4, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 76,
+        y: 10,
+        widthCells: 2, // 82,
+        heightCells: 2,
+    },
+
+    {
+        x: 82,
+        y: 12,
+        widthCells: 4, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 82,
+        y: 9,
+        widthCells: 1, // 82,
+        heightCells: 3
+    },
+
+    {
+        x: 88,
+        y: 12,
+        widthCells: 4, // 82,
+        heightCells: 1,
+    },
+
+    {
+        x: 88,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 2
+    },
+
+    {
+        x: 94,
+        y: 12,
+        widthCells: 8, // 82,
+        heightCells: 1
+    },
+
+    {
+        x: 94,
+        y: 9,
+        widthCells: 1, // 82,
+        heightCells: 3
+    },
+
+    {
+        x: 99,
+        y: 11,
+        widthCells: 1, // 82,
+        heightCells: 1
+    },
+    {
+        x: 100,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 2
+    },
+    {
+        x: 101,
+        y: 9,
+        widthCells: 1, // 82,
+        heightCells: 3
+    },
+
+    {
+        x: 106,
+        y: 12,
+        widthCells: 9, // 82,
+        heightCells: 1
+    },
+
+    {
+        x: 108,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 2
+    },
+
+    {
+        x: 113,
+        y: 9,
+        widthCells: 2, // 82,
+        heightCells: 3
+    },
+
+    {
+        x: 118,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 1
+    },
+
+    {
+        x: 121,
+        y: 11,
+        widthCells: 1, // 82,
+        heightCells: 1
+    },
+
+    {
+        x: 124,
+        y: 12,
+        widthCells: 15, // 82,
+        heightCells: 1
+    },
+
+    {
+        x: 137,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 2
+    },
+
+    {
+        x: 141,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 2
+    },
+
+    {
+        x: 144,
+        y: 8,
+        widthCells: 1, // 82,
+        heightCells: 4
+    },
+
+    {
+        x: 147,
+        y: 6,
+        widthCells: 1, // 82,
+        heightCells: 6
+    },
+
+    {
+        x: 150,
+        y: 4,
+        widthCells: 2, // 82,
+        heightCells: 8
+    },
+
+    {
+        x: 150,
+        y: 12,
+        widthCells: 14, // 82,
+        heightCells: 1
+    },
+    // batz pipe 1 of 3
+    {
+        x: 154,
+        y: 10,
+        widthCells: 2, // 82,
+        heightCells: 2
+    },
+    {
+        x: 156,
+        y: 9,
+        widthCells: 2, // 82,
+        heightCells: 3
+    },
+    {
+        x: 158,
+        y: 10,
+        widthCells: 2, // 82,
+        heightCells: 2
+    },
+    {
+        x: 162,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells: 2
+    },
+    {
+        x: 166,
+        y: 10,
+        widthCells: 1, // 82,
+        heightCells:  1 
+    },
+
+    {
+        x: 169,
+        y: 8,
+        widthCells: 1, // 82,
+        heightCells:  1 
+    },
+
+    {
+        x: 172,
+        y: 6,
+        widthCells: 1, // 82,
+        heightCells:  1 
+    },
+
+    {
+        x: 175,
+        y: 4,
+        widthCells: 2, // 82,
+        heightCells:  1 
+    },
+    {
+        x: 179,
+        y: 12,
+        widthCells: 10, // 82,
+        heightCells:  1 
+    },
+
   ],
   portals: [
     {
-        x: 69,
+        x: 185,
         y: 2,
         widthCells: 1, // 82,
         heightCells: 10,
@@ -174,18 +426,18 @@ const room1 = new Room({
     //   // widthCells: 2,
     //   heightCells: 4
     // },
-    {
-      type: Objs.HARD_HAT,
-      x:45, // was 53
-      y: 11.15,
-      id: 9007
-    },
-    {
-      type: Objs.HARD_HAT,
-      x:67, // was 53
-      y: 11.15,
-      id: 9255
-    },
+    // {
+    //   type: Objs.HARD_HAT,
+    //   x:45, // was 53
+    //   y: 11.15,
+    //   id: 9007
+    // },
+    // {
+    //   type: Objs.HARD_HAT,
+    //   x:67, // was 53
+    //   y: 11.15,
+    //   id: 9255
+    // },
     // {
     //   type: Objs.CRYPTOAD,
     //   x:20, // was 53
