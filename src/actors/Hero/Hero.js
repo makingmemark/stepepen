@@ -331,13 +331,15 @@ export class Hero extends ex.Actor {
 
     // need to check if d-pad directions are held down
 
-    const axisLeftRightValue =  engine.input.gamepads.at(0).getAxes(0);
-    if (axisLeftRightValue > 0.5) this.directionQueue.add(RIGHT); 
-    else this.directionQueue.remove(RIGHT); 
+    if(this.gamepadActive) {
+      const axisLeftRightValue =  engine.input.gamepads.at(0).getAxes(0);
+      if (axisLeftRightValue > 0.5) this.directionQueue.add(RIGHT); 
+      else this.directionQueue.remove(RIGHT); 
 
-    if (axisLeftRightValue < -0.5) this.directionQueue.add(LEFT); 
-    else this.directionQueue.remove(LEFT); 
-    
+      if (axisLeftRightValue < -0.5) this.directionQueue.add(LEFT); 
+      else this.directionQueue.remove(LEFT); 
+    }
+      
 
     // console.log(this.pos.y)
 
