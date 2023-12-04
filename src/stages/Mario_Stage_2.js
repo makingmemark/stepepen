@@ -106,9 +106,9 @@ const room1 = new Room({
 
 
     {
-        x: 44,
+        x: 45,
         y: 12,
-        widthCells: 3, // 82,
+        widthCells: 2, // 82,
         heightCells: 1,
     },
 
@@ -184,9 +184,9 @@ const room1 = new Room({
     },
 
     {
-        x: 76,
+        x: 78,
         y: 12,
-        widthCells: 4, // 82,
+        widthCells: 2, // 82,
         heightCells: 1,
     },
 
@@ -198,9 +198,9 @@ const room1 = new Room({
     },
 
     {
-        x: 82,
+        x: 83,
         y: 12,
-        widthCells: 4, // 82,
+        widthCells: 3, // 82,
         heightCells: 1,
     },
 
@@ -212,9 +212,9 @@ const room1 = new Room({
     },
 
     {
-        x: 88,
+        x: 89,
         y: 12,
-        widthCells: 4, // 82,
+        widthCells: 3, // 82,
         heightCells: 1,
     },
 
@@ -226,9 +226,9 @@ const room1 = new Room({
     },
 
     {
-        x: 94,
+        x: 95,
         y: 12,
-        widthCells: 8, // 82,
+        widthCells: 7, // 82,
         heightCells: 1
     },
 
