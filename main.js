@@ -99,7 +99,7 @@ async function main() {
   await game.start(loader); // will load and then immediately start of suppressPlayButton is true
 
   const myLabel = new ex.Label({
-    text: "work-in-progress // arrow keys to move, z to jump, x to fire/run",
+    text: "gm, work-in-progress // arrow keys to move, z to jump, x to fire/run",
     x: 15 * SCALED_CELL, // X position
     y: 1 * SCALED_CELL, // Y position
     font: new ex.Font({
